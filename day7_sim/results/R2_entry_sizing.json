@@ -1,0 +1,30 @@
+[
+ {
+  "mach_target": 1.8,
+  "feasible": false,
+  "note": "no throttle reaches exit within reserve"
+ },
+ {
+  "mach_target": 2.0,
+  "feasible": false,
+  "note": "no throttle reaches exit within reserve"
+ },
+ {
+  "mach_target": 2.3,
+  "feasible": false,
+  "note": "no throttle reaches exit within reserve"
+ },
+ {
+  "mach_target": 2.7,
+  "feasible": false,
+  "note": "no throttle reaches exit within reserve"
+ },
+ {
+  "mach_target": null,
+  "feasible": true,
+  "note": "deepest corridor reachable at this mass within reserve",
+  "exit_mach": 2.89,
+  "throttle": 0.67,
+  "entry_prop_t": 17.9
+ }
+]

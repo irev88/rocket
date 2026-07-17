@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="810" viewBox="0 0 1400 810" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif">
+  <defs>
+    <marker id="arrowB" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#2E5E8C"/></marker>
+  </defs>
+  <rect width="1400" height="810" fill="#FFFFFF"/>
+  <text x="80" y="48" font-size="26" font-weight="bold" fill="#16324F">一级回收飞行序列剖面图（动力垂直回收 · 远海网/绳捕获）</text>
+  <text x="80" y="76" font-size="16" fill="#5B6670">状态量为 Falcon 9 / 长征十号B 级运行锚点的估计量级；本箭精确状态量待 Day 7 轨迹模型输出</text>
+
+  <!-- grid -->
+  <g stroke="#D9E2EC" stroke-width="1">
+    <line x1="80" y1="120" x2="1360" y2="120"/><line x1="80" y1="272.5" x2="1360" y2="272.5"/>
+    <line x1="80" y1="425" x2="1360" y2="425"/><line x1="80" y1="577.5" x2="1360" y2="577.5"/>
+    <line x1="277" y1="120" x2="277" y2="730"/><line x1="474" y1="120" x2="474" y2="730"/>
+    <line x1="671" y1="120" x2="671" y2="730"/><line x1="868" y1="120" x2="868" y2="730"/>
+    <line x1="1065" y1="120" x2="1065" y2="730"/><line x1="1262" y1="120" x2="1262" y2="730"/>
+  </g>
+  <!-- axes -->
+  <line x1="80" y1="730" x2="1360" y2="730" stroke="#16324F" stroke-width="2" marker-end="url(#arrowB)"/>
+  <line x1="80" y1="730" x2="80" y2="120" stroke="#16324F" stroke-width="2" marker-end="url(#arrowB)"/>
+  <g font-size="15" fill="#16324F">
+    <text x="60" y="735">0</text><text x="52" y="582">50</text><text x="44" y="430">100</text><text x="44" y="278">150</text><text x="44" y="126">200</text>
+    <text x="72" y="756">0</text><text x="262" y="756">100</text><text x="459" y="756">200</text><text x="656" y="756">300</text>
+    <text x="853" y="756">400</text><text x="1050" y="756">500</text><text x="1247" y="756">600</text>
+  </g>
+  <text x="20" y="420" font-size="16" fill="#16324F" transform="rotate(-90 20 420)" text-anchor="middle">高度 (km)</text>
+  <text x="640" y="788" font-size="16" fill="#16324F" text-anchor="middle">下程距离 (km)</text>
+
+  <!-- sea -->
+  <rect x="80" y="730" width="1280" height="26" fill="#BFD7EA"/>
+  <text x="620" y="748" font-size="14" fill="#2E5E8C" text-anchor="middle">海面</text>
+
+  <!-- stage-2 continuation (dashed) -->
+  <path d="M 169,510 Q 600,60 1300,95" fill="none" stroke="#9AA7B2" stroke-width="2.5" stroke-dasharray="8 6"/>
+  <text x="880" y="72" font-size="15" fill="#5B6670">二级继续入轨（一次性使用）</text>
+
+  <!-- booster trajectory -->
+  <path d="M 169,510 Q 400,300 651,242" fill="none" stroke="#2E5E8C" stroke-width="3.5"/>
+  <path d="M 651,242 Q 900,260 1035,532" fill="none" stroke="#2E5E8C" stroke-width="3.5"/>
+  <path d="M 1035,532 L 1104,614" fill="none" stroke="#E0561E" stroke-width="6"/>
+  <path d="M 1104,614 Q 1140,650 1159,693" fill="none" stroke="#2E5E8C" stroke-width="3.5"/>
+  <path d="M 1159,693 L 1193,726" fill="none" stroke="#E0561E" stroke-width="6"/>
+
+  <!-- recovery ship -->
+  <g>
+    <path d="M 1150,730 L 1250,730 L 1236,748 L 1162,748 Z" fill="#33475B"/>
+    <rect x="1160" y="676" width="8" height="54" fill="#33475B"/>
+    <rect x="1232" y="676" width="8" height="54" fill="#33475B"/>
+    <line x1="1164" y1="682" x2="1236" y2="682" stroke="#E0561E" stroke-width="3"/>
+    <line x1="1164" y1="682" x2="1200" y2="704" stroke="#E0561E" stroke-width="1.6"/>
+    <line x1="1236" y1="682" x2="1200" y2="704" stroke="#E0561E" stroke-width="1.6"/>
+    <text x="1200" y="798" font-size="15" fill="#16324F" text-anchor="middle">回收船（捕获架＋钢索＋液压阻尼）</text>
+  </g>
+
+  <!-- numbered phase markers -->
+  <g font-size="17" font-weight="bold" fill="#FFFFFF" text-anchor="middle">
+    <circle cx="169" cy="510" r="15" fill="#16324F"/><text x="169" y="516">1</text>
+    <circle cx="651" cy="242" r="15" fill="#16324F"/><text x="651" y="248">2</text>
+    <circle cx="1035" cy="532" r="15" fill="#16324F"/><text x="1035" y="538">3</text>
+    <circle cx="1132" cy="652" r="15" fill="#16324F"/><text x="1132" y="658">4</text>
+    <circle cx="1176" cy="710" r="15" fill="#16324F"/><text x="1176" y="716">5</text>
+    <circle cx="1200" cy="700" r="15" fill="#E0561E"/><text x="1200" y="706">6</text>
+    <circle cx="1276" cy="742" r="15" fill="#2E8B57"/><text x="1276" y="748">7</text>
+  </g>
+
+  <!-- phase labels -->
+  <g font-size="16" fill="#16324F">
+    <text x="150" y="470">① 分离·翻转·推进剂沉降（RCS）</text>
+    <text x="370" y="212">② 惯性弹道飞行：顶点 ≈130–200 km</text>
+    <text x="770" y="508">③ 再入点火（3 台发动机）Δv 500–800 m/s · 约 55→40 km</text>
+    <text x="120" y="568">④ 栅格翼气动下滑（钛合金，耐 &gt;1,000℃）</text>
+    <text x="120" y="596">⑤ 末段点火（单台节流）→ ≤2 m/s</text>
+    <text x="120" y="624" fill="#E0561E" font-weight="bold">⑥ 钢索捕获（4 捕获耳挂接钢索）</text>
+    <text x="120" y="652" fill="#2E8B57" font-weight="bold">⑦ 固定·钝化·安全处理（船端）</text>
+  </g>
+
+  <!-- annotation: no boostback -->
+  <rect x="120" y="120" width="330" height="62" rx="8" fill="#FBEEE6" stroke="#E0561E" stroke-width="1.5"/>
+  <text x="135" y="145" font-size="15" fill="#C0392B" font-weight="bold">不执行返场点火（Boostback）</text>
+  <text x="135" y="168" font-size="14" fill="#5B6670">18 t 储备不支持返场；回收窗口由弹道决定</text>
+
+  <!-- downrange arrow -->
+  <line x1="562" y1="710" x2="1145" y2="710" stroke="#5B6670" stroke-width="1.6" stroke-dasharray="6 5" marker-end="url(#arrowB)"/>
+  <text x="800" y="700" font-size="14" fill="#5B6670" text-anchor="middle">回收船站位：约 400–650 km 远海（长征十号B 锚点 ≈430 km）</text>
+</svg>

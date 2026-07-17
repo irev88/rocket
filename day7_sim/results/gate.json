@@ -1,0 +1,53 @@
+{
+ "all_pass": true,
+ "gates": [
+  {
+   "id": "G1",
+   "name": "Effective Isp within declared envelope",
+   "passed": true,
+   "detail": "S1 avg Isp 303.1 s (env 282\u2013311); S2 342.2 s (declared 348, fairing-jettison bookkeeping)"
+  },
+  {
+   "id": "G2",
+   "name": "Mass bookkeeping exact",
+   "passed": true,
+   "detail": "staging drop 58,000 kg (=58,000); final 37,192 kg (=37,200 physics convention w/ fairing jettison; 39,000 w/ fairing kept)"
+  },
+  {
+   "id": "G3",
+   "name": "Ascent profile inside real-flight family bands",
+   "passed": true,
+   "detail": "MECO Mach 5.7 @ 66.5 km; Max-Q Mach 1.41 @ t+70 s, 11.0 km (F9-class references: MECO Mach 5.7\u20136.3/65\u201375 km, Max-Q ~T+70\u201380 s)"
+  },
+  {
+   "id": "G4",
+   "name": "Max-Q measured (counter-M-3)",
+   "passed": true,
+   "detail": "Q_max = 31.2 kPa @ t+70 s / 11.0 km / Mach 1.41 \u2014 vs Day-5 claim 28 kPa@12\u201315 km vs Day-5 own data 40.4 kPa@9.3 km"
+  },
+  {
+   "id": "G5",
+   "name": "S2 \u0394v \u2264 Tsiolkovsky bound (energy honesty)",
+   "passed": true,
+   "detail": "S2 thrust-work \u0394v 4662 m/s \u2264 ideal 4740 m/s (old sim gained 5080 m/s vs its own bound ~4,620 \u2192 phantom energy)"
+  },
+  {
+   "id": "G6",
+   "name": "Orbit state & deficit quantified (counter-C-2)",
+   "passed": true,
+   "detail": "SECO 78 km / 5863 m/s \u2192 perigee -3823 km; deficit to 500\u00d7500 = 2125 m/s (documented design does NOT close; honest number, no patching)"
+  },
+  {
+   "id": "G7",
+   "name": "Energy balance closes (thrust \u2212 losses = final v)",
+   "passed": true,
+   "detail": "thrust 7797 \u2212 grav 1912 \u2212 drag 18 = 5867 vs final v 5863 m/s (residual 3 from steering projection)"
+  },
+  {
+   "id": "G8",
+   "name": "Axial acceleration < 5 g path constraint",
+   "passed": true,
+   "detail": "max sensed accel 4.09 g (limit 5 g; no throttle-down needed)"
+  }
+ ]
+}

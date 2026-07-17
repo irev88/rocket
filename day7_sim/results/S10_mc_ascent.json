@@ -1,0 +1,108 @@
+{
+ "A": {
+  "config": "A",
+  "n": 400,
+  "n_converged": 327,
+  "fail_pct": 18.2,
+  "nominal_deficit": 1426.714481155449,
+  "deficit": {
+   "mean": 2082.25,
+   "sd": 1239.87,
+   "p5": 1423.81,
+   "p50": 1515.86,
+   "p95": 5308.88
+  },
+  "q_max_kpa": {
+   "mean": 933.7,
+   "sd": 1485.89,
+   "p50": 31.77,
+   "p95": 3993.12,
+   "p99": 4173.65
+  },
+  "g_max": {
+   "mean": 9.92,
+   "sd": 10.63,
+   "p50": 4.09,
+   "p95": 32.82,
+   "p99": 34.05
+  },
+  "meco_v": {
+   "mean": 1915.34,
+   "sd": 15.86,
+   "p5": 1889.88,
+   "p50": 1916.52,
+   "p95": 1941.18
+  },
+  "P_q_gt_35kpa": 0.45,
+  "P_g_gt_5": 0.266,
+  "P_deficit_le_0": 0.0,
+  "dispersion_assumptions": "Normal 2-sigma: Isp +/-1.5 s, Cd +/-10%, dry +/-1%, kick +/-0.15 deg, t_kick0 +/-1 s",
+  "conditioned": {
+   "n": 400,
+   "n_converged": 327,
+   "P_converge": 0.818,
+   "P_struct_survival_qle35": 0.45,
+   "P_survive_q_and_g": 0.45,
+   "deficit_given_qle35": {
+    "mean": 1496.0,
+    "sd": 54.0,
+    "p5": 1423.0,
+    "p95": 1590.0
+   },
+   "interpretation": "open-loop schedule guidance at the T/W=0.66 cliff: 2-sigma Isp/mass/kick dispersions push a large fraction of flights into dive-recovery or break-up; needs closed-loop guidance + margin, or the architecture move"
+  }
+ },
+ "B": {
+  "config": "B",
+  "n": 400,
+  "n_converged": 374,
+  "fail_pct": 6.5,
+  "nominal_deficit": 870.5025177775415,
+  "deficit": {
+   "mean": 1563.32,
+   "sd": 1412.84,
+   "p5": 859.43,
+   "p50": 929.76,
+   "p95": 5373.09
+  },
+  "q_max_kpa": {
+   "mean": 740.29,
+   "sd": 1241.06,
+   "p50": 35.24,
+   "p95": 3516.91,
+   "p99": 3676.38
+  },
+  "g_max": {
+   "mean": 8.84,
+   "sd": 5.72,
+   "p50": 6.49,
+   "p95": 23.02,
+   "p99": 24.39
+  },
+  "meco_v": {
+   "mean": 2046.02,
+   "sd": 25.68,
+   "p5": 2002.03,
+   "p50": 2046.67,
+   "p95": 2085.97
+  },
+  "P_q_gt_35kpa": 0.599,
+  "P_g_gt_5": 0.917,
+  "P_deficit_le_0": 0.0,
+  "dispersion_assumptions": "Normal 2-sigma: Isp +/-1.5 s, Cd +/-10%, dry +/-1%, kick +/-0.15 deg, t_kick0 +/-1 s",
+  "conditioned": {
+   "n": 400,
+   "n_converged": 374,
+   "P_converge": 0.935,
+   "P_struct_survival_qle35": 0.375,
+   "P_survive_q_and_g": 0.0,
+   "deficit_given_qle35": {
+    "mean": 928.0,
+    "sd": 51.0,
+    "p5": 871.0,
+    "p95": 1039.0
+   },
+   "interpretation": "open-loop schedule guidance at the T/W=0.66 cliff: 2-sigma Isp/mass/kick dispersions push a large fraction of flights into dive-recovery or break-up; needs closed-loop guidance + margin, or the architecture move"
+  }
+ }
+}

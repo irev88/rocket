@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="760" viewBox="0 0 1240 760" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#16324F"/></marker>
+  </defs>
+  <rect width="1240" height="760" fill="#FFFFFF"/>
+  <text x="60" y="50" font-size="26" font-weight="bold" fill="#16324F">捕获负载传递路径（船端吸能 · 箭端分散 · 表面可更换）</text>
+  <text x="60" y="80" font-size="16" fill="#5B6670">负载链：钢索 → 磨损靴 → 捕获耳 → 捕获环 → 环框/桁条 → 储箱壁与级间段</text>
+
+  <!-- input arrow -->
+  <line x1="200" y1="120" x2="200" y2="168" stroke="#C0392B" stroke-width="6" marker-end="url(#arr)"/>
+  <text x="130" y="112" font-size="16" font-weight="bold" fill="#C0392B">捕获载荷输入（90–563 kJ）</text>
+
+  <!-- node 1 -->
+  <rect x="60" y="170" width="330" height="160" rx="12" fill="#EEF3F8" stroke="#2E5E8C" stroke-width="2"/>
+  <text x="80" y="205" font-size="19" font-weight="bold" fill="#16324F">① 钢索 / 网 + 液压阻尼</text>
+  <text x="80" y="232" font-size="14.5" fill="#33475B">非飞行基础设施（船端）</text>
+  <text x="80" y="256" font-size="14.5" fill="#33475B">· 主终端能量吸收器（液压阻尼）</text>
+  <text x="80" y="280" font-size="14.5" fill="#33475B">· 材料候选：UHMWPE/芳纶混合</text>
+  <text x="80" y="304" font-size="14.5" fill="#33475B">· 锚点：长征十号B 升高式捕获架</text>
+  <line x1="392" y1="250" x2="442" y2="250" stroke="#16324F" stroke-width="3" marker-end="url(#arr)"/>
+
+  <!-- node 2 -->
+  <rect x="445" y="170" width="330" height="160" rx="12" fill="#FBEEE6" stroke="#E0561E" stroke-width="2"/>
+  <text x="465" y="205" font-size="19" font-weight="bold" fill="#C0392B">② 磨损靴（可更换耗材）</text>
+  <text x="465" y="232" font-size="14.5" fill="#33475B">涂层钢 / 因科镍 / 陶瓷涂层镶件</text>
+  <text x="465" y="256" font-size="14.5" fill="#33475B">· 承担滑移、磨蚀、局部高温</text>
+  <text x="465" y="280" font-size="14.5" fill="#33475B">· 保护永久结构免受捕获损伤</text>
+  <text x="465" y="304" font-size="14.5" fill="#33475B">· 每次复飞按护照阈值更换</text>
+  <line x1="777" y1="250" x2="827" y2="250" stroke="#16324F" stroke-width="3" marker-end="url(#arr)"/>
+
+  <!-- node 3 -->
+  <rect x="830" y="170" width="330" height="160" rx="12" fill="#EEF3F8" stroke="#2E5E8C" stroke-width="2"/>
+  <text x="850" y="205" font-size="19" font-weight="bold" fill="#16324F">③ 捕获耳 ×4（接口）</text>
+  <text x="850" y="232" font-size="14.5" fill="#33475B">钛合金 / 马氏体钢本体</text>
+  <text x="850" y="256" font-size="14.5" fill="#33475B">· 高强度 · 抗疲劳 · 可检测</text>
+  <text x="850" y="280" font-size="14.5" fill="#33475B">· 2–3 耳非对称挂接为设计工况</text>
+  <text x="850" y="304" font-size="14.5" fill="#33475B">· 内置 FBG 应变监测</text>
+  <line x1="995" y1="332" x2="995" y2="400" stroke="#16324F" stroke-width="3" marker-end="url(#arr)"/>
+
+  <!-- node 4 -->
+  <rect x="830" y="402" width="330" height="160" rx="12" fill="#EEF3F8" stroke="#2E5E8C" stroke-width="2"/>
+  <text x="850" y="437" font-size="19" font-weight="bold" fill="#16324F">④ 捕获环（永久结构）</text>
+  <text x="850" y="464" font-size="14.5" fill="#33475B">铝锂环框 + 局部钛/钢镶件</text>
+  <text x="850" y="488" font-size="14.5" fill="#33475B">· 沿圆周均匀分配集中载荷</text>
+  <text x="850" y="512" font-size="14.5" fill="#33475B">· 位于末段质心上方（悬吊稳定）</text>
+  <text x="850" y="536" font-size="14.5" fill="#33475B">· 外表面局部 TPS 覆盖</text>
+  <line x1="827" y1="482" x2="777" y2="482" stroke="#16324F" stroke-width="3" marker-end="url(#arr)"/>
+
+  <!-- node 5 -->
+  <rect x="445" y="402" width="330" height="160" rx="12" fill="#EEF3F8" stroke="#2E5E8C" stroke-width="2"/>
+  <text x="465" y="437" font-size="19" font-weight="bold" fill="#16324F">⑤ 环框 / 纵向桁条</text>
+  <text x="465" y="464" font-size="14.5" fill="#33475B">金属主结构骨架</text>
+  <text x="465" y="488" font-size="14.5" fill="#33475B">· 将环载荷扩散为壳体薄膜力</text>
+  <text x="465" y="512" font-size="14.5" fill="#33475B">· 避免局部屈曲 / 撕裂</text>
+  <text x="465" y="536" font-size="14.5" fill="#33475B">· 传感器沿环框布线保护</text>
+  <line x1="442" y1="482" x2="392" y2="482" stroke="#16324F" stroke-width="3" marker-end="url(#arr)"/>
+
+  <!-- node 6 -->
+  <rect x="60" y="402" width="330" height="160" rx="12" fill="#E8F2EC" stroke="#2E8B57" stroke-width="2"/>
+  <text x="80" y="437" font-size="19" font-weight="bold" fill="#2E8B57">⑥ 储箱壁 / 级间段</text>
+  <text x="80" y="464" font-size="14.5" fill="#33475B">铝锂主承压结构</text>
+  <text x="80" y="488" font-size="14.5" fill="#33475B">· 仅捕获带局部等网格/正交网格加强</text>
+  <text x="80" y="512" font-size="14.5" fill="#33475B">· 不整体加厚（质量效率原则）</text>
+  <text x="80" y="536" font-size="14.5" fill="#33475B">· 与环框/桁条直接负载路径相容</text>
+  <line x1="200" y1="564" x2="200" y2="612" stroke="#2E8B57" stroke-width="6" marker-end="url(#arr)"/>
+  <text x="120" y="640" font-size="16" font-weight="bold" fill="#2E8B57">载荷均匀化进入主结构</text>
+
+  <!-- principle note -->
+  <rect x="445" y="600" width="715" height="120" rx="12" fill="#F7F9FB" stroke="#9AA7B2" stroke-width="1.5"/>
+  <text x="465" y="632" font-size="17" font-weight="bold" fill="#16324F">设计原则</text>
+  <text x="465" y="660" font-size="15" fill="#33475B">· 船端吸收终端动能（E ∝ v²，2 m/s≈90 kJ；5 m/s≈563 kJ）→ 控速度优于加强度</text>
+  <text x="465" y="686" font-size="15" fill="#33475B">· 高磨损/高热表面全部为可更换在线耗材；捕获区全程 FBG 应变记录（复用护照）</text>
+  <text x="465" y="710" font-size="15" fill="#33475B">· 加强仅布置于捕获带：局部等网格/正交网格，不向全箭壁板摊铺质量</text>
+</svg>

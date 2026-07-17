@@ -1,0 +1,7 @@
+{
+ "s1_implied_isp": 364.0,
+ "s2_implied_isp": 427.0,
+ "envelope_s1": "282\u2013311 s",
+ "declared_s2": "348 s",
+ "note": "implied Isp = (old velocity gain + honest losses proxy) / (g0*ln(ratio)); >vacuum Isp proves energy non-conservation (audit C-1 re-derived)"
+}

@@ -1,0 +1,5 @@
+{
+ "f_close": 1.395,
+ "glom_kg": 801940.0,
+ "note": "linear interpolation between verified sim points; deficit<0 = braking margin on target-circle arrival"
+}

@@ -1,0 +1,35 @@
+===== PAGE 1 =====
+AI Co-Design of a Reusable Rocket
+(1) Overview
+Design a conceptual reusable launch vehicle using AI-assisted engineering workflows.
+Students work in teams of three to five, supported by an LLM as an engineering copilot,
+a professor (Prof. Xu) as chief engineer, and graduate students (Yingjie & Jingjie) as
+subsystem mentors. Rather than pursuing the best rocket, the course focuses on
+requirements decomposition, multidisciplinary design optimization, trade-off analysis,
+uncertainty quantification, and engineering communication.
+(2) Schedule
+Day Theme Deliverable
+1 (11-Jul) Mission definition Mission requirements
+2 (12-Jul) Rocket fundamentals First-order sizing
+3 (13-Jul) Propulsion system Engine selection
+4 (14-Jul) Mass budget and advanced materials Vehicle architecture
+5 (15-Jul) Aerodynamics and trajectory Flight profile
+6 (16-Jul) Reusability strategy Recovery concept
+7 (17-Jul) AI-assisted optimization Design iteration
+8 (18-Jul) Reliability and economics Cost and risk analysis
+9 (19-Jul) Final system integration Technical review
+10 (20-Jul) Design competition Final presentation
+(3) Potential outcomes
+Students could produce a mission report, CAD sketches, trajectory simulations, mass
+budgets, cost models, and AI interaction logs, together with an AI-generated
+engineering notebook that records each design decision and its rationale.
+(4) Future extensions
+More ambitious extensions include multi-agent engineering AI, simplified digital twins,
+evolutionary design competitions, and historical benchmarking against vehicles. A
+focused late-stage extension could investigate how emerging materials and
+manufacturing technologies, such as carbon-fiber-reinforced composites and 3D-
+printed components, may improve structural efficiency, manufacturability, and
+reusability.
+The long-term goal is to teach students how human creativity, physical principles, and
+AI-assisted exploration can be integrated across mechanics, thermodynamics, fluid
+dynamics, control, optimization, economics, and AI.

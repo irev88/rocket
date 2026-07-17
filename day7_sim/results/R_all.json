@@ -1,0 +1,101 @@
+{
+ "R2": [
+  {
+   "mach_target": 1.8,
+   "feasible": false,
+   "note": "no throttle reaches exit within reserve"
+  },
+  {
+   "mach_target": 2.0,
+   "feasible": false,
+   "note": "no throttle reaches exit within reserve"
+  },
+  {
+   "mach_target": 2.3,
+   "feasible": false,
+   "note": "no throttle reaches exit within reserve"
+  },
+  {
+   "mach_target": 2.7,
+   "feasible": false,
+   "note": "no throttle reaches exit within reserve"
+  },
+  {
+   "mach_target": null,
+   "feasible": true,
+   "note": "deepest corridor reachable at this mass within reserve",
+   "exit_mach": 2.89,
+   "throttle": 0.67,
+   "entry_prop_t": 17.9
+  }
+ ],
+ "R3": {
+  "selected_burned_t": 4.823922130130772,
+  "selected_h_ign": 1909.2518887142933
+ },
+ "R4": {
+  "corridors": {
+   "M1.8": {
+    "R_star_t": 37.2,
+    "need_at_Rstar_t": 36.4,
+    "need_at_18t_t": null,
+    "note_at_18t": "entry corridor unreachable within reserve",
+    "entry_t": 29.43394576693557,
+    "landing_t": 4.96524051399049,
+    "entry_tl": 0.9500000000000005,
+    "landing_tl": 1.0,
+    "h_ign_m": 1450.8682332897015,
+    "aux_t": 2.0
+   },
+   "M2.0": {
+    "R_star_t": 35.0,
+    "need_at_Rstar_t": 34.8,
+    "need_at_18t_t": null,
+    "note_at_18t": "entry corridor unreachable within reserve",
+    "entry_t": 27.694125490833947,
+    "landing_t": 5.108850547318257,
+    "entry_tl": 0.9100000000000005,
+    "landing_tl": 0.95,
+    "h_ign_m": 1585.6696721744206,
+    "aux_t": 2.0
+   },
+   "M2.3": {
+    "R_star_t": 32.4,
+    "need_at_Rstar_t": 32.3,
+    "need_at_18t_t": null,
+    "note_at_18t": "entry corridor unreachable within reserve",
+    "entry_t": 25.088978375615866,
+    "landing_t": 5.224960787030036,
+    "entry_tl": 0.8500000000000004,
+    "landing_tl": 0.95,
+    "h_ign_m": 1675.3702442209924,
+    "aux_t": 2.0
+   },
+   "M2.7": {
+    "R_star_t": 29.6,
+    "need_at_Rstar_t": 29.5,
+    "need_at_18t_t": null,
+    "note_at_18t": "entry corridor unreachable within reserve",
+    "entry_t": 22.164833654453417,
+    "landing_t": 5.355584806705788,
+    "entry_tl": 0.7800000000000004,
+    "landing_tl": 0.95,
+    "h_ign_m": 1770.0514114187,
+    "aux_t": 2.0
+   }
+  },
+  "aux_t": 2.0,
+  "documented_reserve_t": 18.0,
+  "documented_legged_t": 24.0,
+  "verdict": "documented 18 t reserve reaches only ~Mach 2.9 at 40 km (hotter than the anchored reusable-family corridor Mach 1.8-2.7); closing credible corridors needs R* = 30-37 t. Day-4 recovery reserve (18 t) is undersized ~2x; Day-6 hybrid-vs-legged 6 t reserve saving is not supported (need >= legged 24 t)."
+ },
+ "R5": {
+  "x_ship_center_km": 489,
+  "corridor_km": [
+   481,
+   496
+  ],
+  "corridor_width_km": 15,
+  "note": "ship = corridor centre; grid-fin L/D +/-20% drives corridor spread; separation point moves with Day-8 architecture choice -> re-solve then"
+ }
+}

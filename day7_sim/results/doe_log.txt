@@ -1,0 +1,16 @@
+B2 — LHS DOE config A (600 samples) ...
+  converged 546/600; deficit drivers: ['t_kick0', 'p1', 'kick', 'bias0', 'hold', 'cd']
+    deficit~t_kick0: rho=+0.478
+    deficit~p1: rho=-0.422
+    deficit~kick: rho=-0.405
+    deficit~bias0: rho=+0.224
+B2 — LHS DOE config B (600 samples) ...
+  converged 600/600; deficit drivers: ['t_kick0', 'p1', 'kick', 'bias0', 'hold', 'cd']
+    deficit~t_kick0: rho=+0.538
+    deficit~p1: rho=-0.445
+    deficit~kick: rho=-0.432
+    deficit~bias0: rho=+0.428
+B3 — differential evolution config A ...
+  x*={'kick': 4.3136, 't_kick0': 12.8813, 'bias0': 23.6932, 'hold': 359.6572, 'p1': 391.0, 'cd': 1.0}  -> deficit 1426.7 m/s (grid 1467, gain 40)  q=34.03570690606149 kPa
+B3 — differential evolution config B ...
+  x*={'kick': 4.35, 't_kick0': 10.1472, 'bias0': 3.6396, 'hold': 334.7976, 'p1': 391.0, 'cd': 1.0}  -> deficit 939.6 m/s (grid 872, gain -68)  q=35.36599419221556 kPa

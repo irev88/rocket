@@ -1,0 +1,26 @@
+[
+ {
+  "add_t": 30.0,
+  "tw": 0.553,
+  "feasible": false,
+  "deficit_m_s": null
+ },
+ {
+  "add_t": 60.0,
+  "tw": 0.474,
+  "feasible": false,
+  "deficit_m_s": null
+ },
+ {
+  "add_t": 90.0,
+  "tw": 0.415,
+  "feasible": false,
+  "deficit_m_s": null
+ },
+ {
+  "add_t": 120.0,
+  "tw": 0.369,
+  "feasible": false,
+  "deficit_m_s": null
+ }
+]
