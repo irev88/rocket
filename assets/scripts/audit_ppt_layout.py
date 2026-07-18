@@ -3,7 +3,7 @@
 from pptx import Presentation
 from pptx.util import Emu
 
-PPTX = "/home/user/Day6_可重复使用策略_回收概念.pptx"
+PPTX = "presentations/day06_reusability.pptx"
 prs = Presentation(PPTX)
 SW = prs.slide_width
 SH = prs.slide_height

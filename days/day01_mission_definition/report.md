@@ -35,9 +35,8 @@ The Copilot recommended setting a high-ambition commercial target: **20,000 kg (
 
 ---
 
-
 ---
 
-[Day 2 →](../day02_rocket_fundamentals/report.md)
+**Day 1** | [Day 2: Rocket Fundamentals →](../day02_rocket_fundamentals/report.md)
 
-*Part of the AI Co-Design of a Reusable Rocket program. See the [central engineering notebook](../../engineering_notebook.md) for the full decision log.*
+*Part of the [AI Co-Design of a Reusable Rocket](../../engineering_notebook.md) program (Days 1–10).*

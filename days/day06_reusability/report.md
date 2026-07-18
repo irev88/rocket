@@ -31,9 +31,8 @@ The Copilot conducted a deep literature review of the **Long March 10B debut of 
 
 ---
 
-
 ---
 
-[← Day 5](../day05_trajectory/report.md) | [Day 7 →](../day07_optimization/report.md)
+[← Day 5: Trajectory](../day05_trajectory/report.md) | **Day 6** | [Day 7: Optimization →](../day07_optimization/report.md)
 
-*Part of the AI Co-Design of a Reusable Rocket program. See the [central engineering notebook](../../engineering_notebook.md) for the full decision log.*
+*Part of the [AI Co-Design of a Reusable Rocket](../../engineering_notebook.md) program (Days 1–10).*

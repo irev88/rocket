@@ -56,9 +56,8 @@ These two closed design options—along with their quantified sensitivities, str
 
 ---
 
-
 ---
 
-[← Day 6](../day06_reusability/report.md)
+[← Day 6: Reusability](../day06_reusability/report.md) | **Day 7** | [Day 8: Reliability Economics →](../day08_reliability_economics/report.md)
 
-*Part of the AI Co-Design of a Reusable Rocket program. See the [central engineering notebook](../../engineering_notebook.md) for the full decision log.*
+*Part of the [AI Co-Design of a Reusable Rocket](../../engineering_notebook.md) program (Days 1–10).*

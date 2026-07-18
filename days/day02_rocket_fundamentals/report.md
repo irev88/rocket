@@ -38,9 +38,8 @@ The Copilot highlighted the critical need for a **Recovery Propellant Reserve** 
 
 ---
 
-
 ---
 
-[← Day 1](../day01_mission_definition/report.md) | [Day 3 →](../day03_propulsion/report.md)
+[← Day 1: Mission Definition](../day01_mission_definition/report.md) | **Day 2** | [Day 3: Propulsion →](../day03_propulsion/report.md)
 
-*Part of the AI Co-Design of a Reusable Rocket program. See the [central engineering notebook](../../engineering_notebook.md) for the full decision log.*
+*Part of the [AI Co-Design of a Reusable Rocket](../../engineering_notebook.md) program (Days 1–10).*

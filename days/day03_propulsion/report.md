@@ -52,9 +52,8 @@ The 9-engine Octaweb configuration provides inherent engine-out operational capa
 
 ---
 
-
 ---
 
-[← Day 2](../day02_rocket_fundamentals/report.md) | [Day 4 →](../day04_mass_budget/report.md)
+[← Day 2: Rocket Fundamentals](../day02_rocket_fundamentals/report.md) | **Day 3** | [Day 4: Mass Budget →](../day04_mass_budget/report.md)
 
-*Part of the AI Co-Design of a Reusable Rocket program. See the [central engineering notebook](../../engineering_notebook.md) for the full decision log.*
+*Part of the [AI Co-Design of a Reusable Rocket](../../engineering_notebook.md) program (Days 1–10).*

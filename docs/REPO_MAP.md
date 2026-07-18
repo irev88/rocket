@@ -31,8 +31,8 @@ This repository contains a **10-day AI co-design program** (11–20 July 2026) t
 | Payload | 20 t SSO | 12 t SSO |
 | S1 Engines | 12× M1D | 9× M1D |
 | S2 Engines | 4× MVac | 2× MVac |
-| Launch Cost | $37.6M | $24.4M |
-| Specific Cost | $1,879/kg | $2,033/kg |
+| Launch Cost | $37.7M | $24.5M |
+| Specific Cost | $1,883/kg | $2,038/kg |
 
 ---
 
@@ -85,7 +85,7 @@ rocket/
 │   └── master_p1.png … master_p10.png    ← 10 page renders of master data
 │
 │─── DAY 6 ASSETS ────────────────────────────────────────────────────────
-├── day6_assets/
+├── assets/diagrams/
 │   ├── build_day6_ppt.py                 ← PPTX generation script (29.9 KB)
 │   ├── audit_ppt_layout.py               ← Layout audit script
 │   ├── svg_recovery_sequence.svg/.png    ← Recovery sequence diagram
@@ -146,7 +146,7 @@ rocket/
 | **G-2** | **No PPTX for Day 8 or Day 9** | 🟠 Major | Pattern from Days 1–7 requires a bilingual deck per day. Days 8–9 break this pattern. |
 | **G-3** | **Day 7 PPTX likely not updated with final simulation results** | 🟠 Major | The 108 KB Day7 PPTX was likely built before the full Monte-Carlo/DOE results were available. |
 | **G-4** | **Repository structure is flat and disorganized** | 🟡 Moderate | 10+ numbered files at root with inconsistent prefixes; superseded drafts mixed with finals; no clear separation of code/docs/data. |
-| **G-5** | **FIGURE placeholders in Day 6 FINAL report** | 🟡 Moderate | "[FIGURE 1 — REQUIRED]", "[FIGURE 2 — REQUIRED]" etc. appear throughout but are never filled. SVG assets exist in `day6_assets/` but are not linked. |
+| **G-5** | **FIGURE placeholders in Day 6 FINAL report** | ✅ Resolved | All 7 figure placeholders replaced with image references to `assets/diagrams/` SVG assets. |
 | **G-6** | **No CAD sketches or vehicle diagrams** | 🟡 Moderate | The blueprint (§3) calls for CAD sketches. The report has "Figure N:" captions with no images (Figures 1–5 in Day 4). |
 | **G-7** | **6 AI image prompts defined but never executed** | 🟡 Moderate | `04_Day6_Image_Prompts.md` defines 6 photorealistic images for the Day 6 deck but none have been generated. |
 | **G-8** | **Engineering notebook stops at Day 7** | 🟡 Moderate | `engineering_notebook.md` documents Days 1–7 but omits Days 8–9 decisions. |
@@ -304,7 +304,7 @@ rocket/
 ### 🟠 HIGH PRIORITY
 
 4. **Update Day 7 PPTX** with final Monte-Carlo and DOE results if not already included
-5. **Fill Figure placeholders** in Day 6 FINAL report — the SVG assets already exist in `day6_assets/`
+5. ~~**Fill Figure placeholders**~~ ✅ DONE — Day 6 report figures now reference `assets/diagrams/` assets
 6. **Generate the 6 AI images** from `04_Day6_Image_Prompts.md` for deck enrichment
 7. **Extend engineering notebook** through Days 8–9
 
@@ -345,8 +345,8 @@ Day 1 (Requirements) ───────────────────�
     │               │                                               │
     │   Day 8 (Economics) ←── Day 7 closed baselines                │
     │       │                                                       │
-    │       ├── Path A: 802 t / 20 t / $37.6M / $1,879/kg          │
-    │       └── Path B: 600 t / 12 t / $24.4M / $2,033/kg          │
+    │       ├── Path A: 802 t / 20 t / $37.7M / $1,883/kg          │
+    │       └── Path B: 600 t / 12 t / $24.5M / $2,038/kg          │
     │               │                                               │
     │   Day 9 (Integration) ←── All above                           │
     │       │                                                       │

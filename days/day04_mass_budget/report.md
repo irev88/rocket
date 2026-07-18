@@ -33,9 +33,8 @@ The Copilot introduced the **"Hybrid Catch" recovery architecture** to replace h
 
 ---
 
-
 ---
 
-[← Day 3](../day03_propulsion/report.md) | [Day 5 →](../day05_trajectory/report.md)
+[← Day 3: Propulsion](../day03_propulsion/report.md) | **Day 4** | [Day 5: Trajectory →](../day05_trajectory/report.md)
 
-*Part of the AI Co-Design of a Reusable Rocket program. See the [central engineering notebook](../../engineering_notebook.md) for the full decision log.*
+*Part of the [AI Co-Design of a Reusable Rocket](../../engineering_notebook.md) program (Days 1–10).*

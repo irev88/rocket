@@ -28,9 +28,8 @@ The Copilot recommended a complete halt to the trajectory compilation and spearh
 
 ---
 
-
 ---
 
-[← Day 4](../day04_mass_budget/report.md) | [Day 6 →](../day06_reusability/report.md)
+[← Day 4: Mass Budget](../day04_mass_budget/report.md) | **Day 5** | [Day 6: Reusability →](../day06_reusability/report.md)
 
-*Part of the AI Co-Design of a Reusable Rocket program. See the [central engineering notebook](../../engineering_notebook.md) for the full decision log.*
+*Part of the [AI Co-Design of a Reusable Rocket](../../engineering_notebook.md) program (Days 1–10).*
