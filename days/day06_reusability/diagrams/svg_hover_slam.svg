@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="720" viewBox="0 0 1100 720" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif">
+  <rect width="1100" height="720" fill="#FFFFFF"/>
+  <text x="90" y="48" font-size="25" font-weight="bold" fill="#16324F">末段点火物理：悬停猛击（Hover-Slam）与点火窗口</text>
+  <text x="90" y="76" font-size="15.5" fill="#5B6670">到顶速度 ≤2 m/s 与高度归零必须同时发生；燃尽助推器在最低节流附近无法稳定悬停</text>
+
+  <!-- axes -->
+  <line x1="90" y1="630" x2="1030" y2="630" stroke="#16324F" stroke-width="2"/>
+  <line x1="90" y1="630" x2="90" y2="90" stroke="#16324F" stroke-width="2"/>
+  <g font-size="14" fill="#16324F">
+    <text x="86" y="652" text-anchor="middle">0</text><text x="266" y="652" text-anchor="middle">300</text>
+    <text x="442" y="652" text-anchor="middle">600</text><text x="618" y="652" text-anchor="middle">900</text>
+    <text x="794" y="652" text-anchor="middle">1200</text><text x="970" y="652" text-anchor="middle">1500</text>
+    <text x="66" y="635">0</text><text x="58" y="481">100</text><text x="58" y="327">200</text><text x="58" y="173">300</text>
+  </g>
+  <text x="560" y="690" font-size="15.5" fill="#16324F" text-anchor="middle">高度 (m)</text>
+  <text x="34" y="360" font-size="15.5" fill="#16324F" transform="rotate(-90 34 360)" text-anchor="middle">垂直速度 (m/s)</text>
+  <g stroke="#EDF1F5" stroke-width="1">
+    <line x1="266" y1="90" x2="266" y2="630"/><line x1="442" y1="90" x2="442" y2="630"/>
+    <line x1="618" y1="90" x2="618" y2="630"/><line x1="794" y1="90" x2="794" y2="630"/>
+    <line x1="90" y1="476" x2="1030" y2="476"/><line x1="90" y1="322" x2="1030" y2="322"/><line x1="90" y1="168" x2="1030" y2="168"/>
+  </g>
+
+  <!-- ignition window (shaded between nominal and latest-ignition curves) -->
+  <path d="M 930,182.6 Q 400,260 114,626.9 L 114,568.2 Q 320,340 660,182.6 Z" fill="#F5C9A633"/>
+  <!-- nominal descent with burn -->
+  <path d="M 930,182.6 Q 400,260 114,626.9" fill="none" stroke="#2E5E8C" stroke-width="3.5"/>
+  <!-- latest ignition (full throttle) -->
+  <path d="M 660,182.6 Q 320,340 114,568.2" fill="none" stroke="#C0392B" stroke-width="2.5" stroke-dasharray="8 6"/>
+  <!-- free-fall miss-the-ship trajectory -->
+  <path d="M 660,182.6 Q 950,420 1068,600" fill="none" stroke="#9AA7B2" stroke-width="2.2" stroke-dasharray="4 5" marker-end="url(#arrG)"/>
+  <defs>
+    <marker id="arrG" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#9AA7B2"/></marker>
+  </defs>
+
+  <!-- capture target band -->
+  <rect x="90" y="622.3" width="940" height="7.7" fill="#BFE3CE"/>
+  <text x="430" y="612" font-size="14.5" font-weight="bold" fill="#2E8B57">捕获目标窗口：≤2–5 m/s @ 高度 0（到顶即关机）</text>
+
+  <!-- labels -->
+  <text x="700" y="300" font-size="15" fill="#2E5E8C">标称末段点火剖面（低节流长燃）</text>
+  <text x="470" y="230" font-size="15" fill="#C0392B">最晚点火线（满推力短燃）</text>
+  <text x="560" y="415" font-size="15" fill="#C0392B" font-weight="bold">点火窗口</text>
+  <text x="868" y="500" font-size="14.5" fill="#5B6670">未点火/欠推力 ⇒ 自由落体</text>
+  <text x="868" y="522" font-size="14.5" fill="#5B6670">（弹道偏置：近船落海，避开船体）</text>
+
+  <!-- physics box -->
+  <rect x="112" y="96" width="468" height="108" rx="10" fill="#F7F9FB" stroke="#9AA7B2" stroke-width="1.4"/>
+  <text x="126" y="122" font-size="14.5" fill="#16324F">· 捕获前质量 ≈42–45 t ⇒ 重量 W ≈ 412–441 kN</text>
+  <text x="126" y="146" font-size="14.5" fill="#16324F">· 单台推力 338–845 kN（40–100%）⇒ 悬停需 ≈49–52%</text>
+  <text x="126" y="170" font-size="14.5" fill="#16324F">· 节流下限不确定（文档 40% / 运行报道 ~50–57%）</text>
+  <text x="126" y="194" font-size="14.5" font-weight="bold" fill="#C0392B">⇒ 基准：悬停猛击，禁止到顶后继续下调节流</text>
+</svg>
