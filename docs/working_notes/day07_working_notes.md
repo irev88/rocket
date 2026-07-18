@@ -2,7 +2,7 @@
 
 **Date**: 2026-07-17 (Day 7 of 10) · **Status**: *working notes — not a finalized report or presentation.*
 **Scope completed**: Arc A (physics repair & validation of the ascent baseline), B2 (DOE/sensitivity), B3 (trajectory optimization), B4 (recovery sub-problem), B5 (Monte-Carlo robustness), Arc C (design-iteration log).
-**Reproducibility**: every number below regenerates from `day7_sim/` (`studies.py`, `validate.py`, `run_recovery.py`, `doe.py`, `mc.py`, `plots.py`, `plots2.py`); machine-readable detail in `day7_sim/DATA_SHEET.md` and `day7_sim/results/*.json`.
+**Reproducibility**: every number below regenerates from `simulations/day7_sim/` (`studies.py`, `validate.py`, `run_recovery.py`, `doe.py`, `mc.py`, `plots.py`, `plots2.py`); machine-readable detail in `simulations/day7_sim/DATA_SHEET.md` and `simulations/day7_sim/results/*.json`.
 
 ---
 
@@ -10,7 +10,7 @@
 
 | Arc | Task | Status | Key artifacts |
 |---|---|---|---|
-| A | Repair & validate the physics baseline (audit counter-measures) | **Done** — 8/8 audit gates PASS | `day7_sim/`, `results/gate.json`, figs 1–6, `05_Day5_Repair_and_Completion.md` |
+| A | Repair & validate the physics baseline (audit counter-measures) | **Done** — 8/8 audit gates PASS | `simulations/day7_sim/`, `results/gate.json`, figs 1–6, `docs/working_notes/day05_repair_record.md` |
 | B1 | (folded into A) honest staging point for recovery work | Done | `S0_baseline.json` |
 | B2 | Design of experiments / sensitivity of the trajectory | **Done** — 1,200 LHS runs | `S8_*.json`, fig10 |
 | B3 | Trajectory optimization | **Done** — differential evolution, ~3,500 evals + g-constrained rerun | `S9_optimized.json`, fig11 |
@@ -116,12 +116,12 @@ No external performance number was imported as a model input; divergences from a
 
 ## 7. Limitations carried (state in final report)
 
-Reduced-order models (3-DOF ascent, 2-DOF recovery, 1-D terminal); no Earth-rotation credit; engineering Cd(Mach) and pseudo-lift glide; spherical-gravity recovery frame (≈3 % energy-consistent, ±10 km capture-x class); DE inside the schedule guidance family only; ascent MC uses open-loop guidance (survival probabilities pessimistic); external anchors used for validation only; aux recovery allowance (2 t) is an own estimate. Full list: `day7_sim/DATA_SHEET.md` §5 & §7.3.
+Reduced-order models (3-DOF ascent, 2-DOF recovery, 1-D terminal); no Earth-rotation credit; engineering Cd(Mach) and pseudo-lift glide; spherical-gravity recovery frame (≈3 % energy-consistent, ±10 km capture-x class); DE inside the schedule guidance family only; ascent MC uses open-loop guidance (survival probabilities pessimistic); external anchors used for validation only; aux recovery allowance (2 t) is an own estimate. Full list: `simulations/day7_sim/DATA_SHEET.md` §5 & §7.3.
 
 ## 8. File index
 
-* `07_Day7_Working_Notes.md` — this document (Day-7 narrative, working level).
-* `day7_sim/DATA_SHEET.md` — every citable number (H-1…H-22), iteration ladder, limitations.
-* `day7_sim/results/` — `gate.json` (8/8), `S0–S7`, `S8_*`, `S9_optimized.json`, `S10_mc_ascent.json`, `S11_mc_recovery.json`, `R1–R5 json`, figs 1–13.
-* `day7_sim/`: `params.py, atmosphere.py, vehicle.py, sim.py, studies.py, validate.py, plots.py, recovery_sim.py, run_recovery.py, doe.py, mc.py, plots2.py`, `README.md`.
-* Finalized today: `05_Day5_Repair_and_Completion.md`; Day-6 deck v1.1 + `06_Day6_Addendum_v1_1.md` (from morning session).
+* `docs/working_notes/day07_working_notes.md` — this document (Day-7 narrative, working level).
+* `simulations/day7_sim/DATA_SHEET.md` — every citable number (H-1…H-22), iteration ladder, limitations.
+* `simulations/day7_sim/results/` — `gate.json` (8/8), `S0–S7`, `S8_*`, `S9_optimized.json`, `S10_mc_ascent.json`, `S11_mc_recovery.json`, `R1–R5 json`, figs 1–13.
+* `simulations/day7_sim/`: `params.py, atmosphere.py, vehicle.py, sim.py, studies.py, validate.py, plots.py, recovery_sim.py, run_recovery.py, doe.py, mc.py, plots2.py`, `README.md`.
+* Finalized today: `docs/working_notes/day05_repair_record.md`; Day-6 deck v1.1 + `docs/working_notes/day06_addendum_v1.1.md` (from morning session).

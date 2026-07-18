@@ -135,7 +135,7 @@ def notes(slide, text_string):
     slide.notes_slide.notes_text_frame.text = text_string
 
 def find_image(filename):
-    for prefix in ["", "day7_sim/", "rocket/day7_sim/"]:
+    for prefix in ["", "simulations/day7_sim/results/", "results/"]:
         path = os.path.join(prefix, filename)
         if os.path.exists(path):
             return path
@@ -500,5 +500,5 @@ text(s, 0.95, 6.38, 11.6, 0.85, [
 ], space_after=3)
 notes(s, "最后是本日的设计迭代终审。我们用 100% 诚实的物理否定并重置了原有的失效空气段，在优化中确定了制导潜力的物理天花板，用 500 次蒙特卡洛锁定了 34.5 t 的下行燃油死线，并最终演进出了增重版 Path A 和限制载荷版 Path B 这两条各擅胜场、物理完全闭合、具备高度合规性的顶层设计通道。本日的重整战役排干了数据水分，捍卫了全箭设计的物理尊严，为我们迎接明天 Day 8 的经济可靠性评估和 Day 10 的设计大比拼奠定了不可战胜的技术底座。我的汇报完毕，谢谢大家！")
 
-prs.save("Day7_AI_辅助优化_设计迭代.pptx")
-print("Successfully saved enhanced Day7_AI_辅助优化_设计迭代.pptx, slides count:", len(prs.slides._sldIdLst))
+prs.save("presentations/day07_optimization.pptx")
+print("Successfully saved presentations/day07_optimization.pptx, slides count:", len(prs.slides._sldIdLst))

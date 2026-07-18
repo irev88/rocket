@@ -1,7 +1,7 @@
 # Day 6 (Reusability Strategy / Recovery Concept) — Addendum v1.1
 
-**Issued**: 2026-07-17 (Day 7) · **Scope**: corrections to `02_Day6_Reusability_Strategy_FINAL.md` and `Day6_可重复使用策略_回收概念.pptx` following the Day 5/Day 7 model repair.
-**Rule applied**: finalized documents are not silently edited → the report stands with this addendum; the slide deck was regenerated as **v1.1** (source: `day6_assets/build_day6_ppt.py`).
+**Issued**: 2026-07-17 (Day 7) · **Scope**: corrections to `docs/reports/day06_reusability_strategy.md` and `presentations/day06_reusability.pptx` following the Day 5/Day 7 model repair.
+**Rule applied**: finalized documents are not silently edited → the report stands with this addendum; the slide deck was regenerated as **v1.1** (source: `assets/scripts/build_day6_ppt.py`).
 
 ---
 
@@ -42,4 +42,4 @@
 |---|---|---|
 | 2026-07-16 | Day 6 report FINAL, deck v1.0, SVG×4, image prompts | issued |
 | 2026-07-17 | Deck **v1.1** | E-1…E-6 applied; layout audit clean (15 slides) |
-| 2026-07-17 | `05_Day5_Repair_and_Completion.md`, `day7_sim/` + `DATA_SHEET.md` | Day 5 retired & completed; model + datasets issued |
+| 2026-07-17 | `docs/working_notes/day05_repair_record.md`, `simulations/day7_sim/` + `DATA_SHEET.md` | Day 5 retired & completed; model + datasets issued |

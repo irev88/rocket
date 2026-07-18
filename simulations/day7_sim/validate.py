@@ -54,7 +54,7 @@ gate("G3", "Ascent profile inside real-flight family bands",
 # G4: honest Max-Q measured, no claim needed
 gate("G4", "Max-Q measured (counter-M-3)",
      res["q_max"] > 20e3,
-     f"Q_max = {res['q_max']/1000:.1f} kPa @ t+{res['q_max_t']:.0f} s / {res["q_max_h"]/1000:.1f} km "
+     f"Q_max = {res['q_max']/1000:.1f} kPa @ t+{res['q_max_t']:.0f} s / {res['q_max_h']/1000:.1f} km "
      f"/ Mach {res['q_max_mach']:.2f} — vs Day-5 claim 28 kPa@12–15 km vs Day-5 own data 40.4 kPa@9.3 km")
 
 # G5: energy conservation hard bound (counter-C-1, the money check)
@@ -92,7 +92,7 @@ rows = [
     ("S2 avg Isp", f"{isp2:.0f} s", "implied 411–427 s", "in-envelope vs impossible"),
     ("MECO", f"{meco['h']/1000:.1f} km / {meco['v']:.0f} m/s / Mach {meco['mach']:.1f}",
      "78 km / 2520 m/s / Mach 8.2", "honest staging is lower & slower"),
-    ("Max-Q", f"{res['q_max']/1000:.1f} kPa @ {res["q_max_h"]/1000:.1f} km / t+{res['q_max_t']:.0f} s",
+    ("Max-Q", f"{res['q_max']/1000:.1f} kPa @ {res['q_max_h']/1000:.1f} km / t+{res['q_max_t']:.0f} s",
      "claimed ~28 kPa @12–15 km; own data 40.4 kPa @9.3 km", "claim contradicted by own data"),
     ("Final state", f"SECO {ev['SECO']['h']/1000:.0f} km / {ev['SECO']['v']:.0f} m/s → perigee {orb['perigee_km']:.0f} km",
      "245.5 km / 7610 m/s → perigee −248 km",

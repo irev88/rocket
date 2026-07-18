@@ -1,11 +1,11 @@
 # AI-Assisted Trajectory Optimization, Sensitivity, and Monte-Carlo Design Iteration
 ### AI Co-Design of a Reusable Rocket — Work Package 7 of 10
 **Date:** 17 July 2026 (Day 7) · **Deliverable class (program schedule):** *Design iteration*
-**Document status:** Finalized issue (supersedes the working notes of `07_Day7_Working_Notes.md`)
+**Document status:** Finalized issue (supersedes the working notes of `docs/working_notes/day07_working_notes.md`)
 
 ---
 
-> **Document basis statement.** This document is developed directly from the physics-repaired 3-DOF planar ascent and 2-DOF descent simulators constructed in the `day7_sim/` directory. All calculations, tables, sensitivities, and optimization bounds are fully verified against the machine-readable outputs in `day7_sim/results/` and the citable records in `day7_sim/DATA_SHEET.md`. Every engineering input utilized herein is traced to the documented parameters of the Day 1–4 work packages or is derived programmatically from our own mathematical models, maintaining strict adherence to the project's uniqueness and integrity guidelines.
+> **Document basis statement.** This document is developed directly from the physics-repaired 3-DOF planar ascent and 2-DOF descent simulators constructed in the `simulations/day7_sim/` directory. All calculations, tables, sensitivities, and optimization bounds are fully verified against the machine-readable outputs in `simulations/day7_sim/results/` and the citable records in `day7_sim/DATA_SHEET.md`. Every engineering input utilized herein is traced to the documented parameters of the Day 1–4 work packages or is derived programmatically from our own mathematical models, maintaining strict adherence to the project's uniqueness and integrity guidelines.
 
 **Abstract.** This report presents the complete systems engineering and trajectory optimization findings of the Day 7 design-iteration cycle. The work packages of Day 1–4 are audited, and the trajectory physics of the baseline 600 t reusable kerolox vehicle are repaired, resolving a critical energy non-conservation defect where the initial hobbyist-grade models implied impossible hydrolox-class specific impulses (S1 $\approx$ 364 s, S2 $\approx$ 427 s). Re-simulating with honest pressure-dependent engine profiles reveals an orbital insertion $\Delta v$ deficit of **2,088 m/s** for the documented 20,000 kg SSO payload. Through a multi-dimensional design-iteration ladder, we show that S2-propellant-only growth is blocked by a thrust-to-weight boundary ($T/W_{\text{ign}} \le 0.62–0.66$ at ignition), and that the only architecture-level closure keeping the 20 t SSO payload is a scaled family (12$\times$ M1D + 4$\times$ MVac) at **802 t GLOM** (propellant scale 1.39). For the first-stage recovery sub-problem, a 2-DOF descent chain simulator shows that the documented 18,000 kg propellant reserve is insufficient ($\approx$ 2$\times$ undersized) to close any realistic entry corridor; a fixed-point closure $R^*$ determines that a **30–37 t reserve** is required (recommended working point: **34.5 t** for a Mach 2.3 entry corridor, verified by a 1,000-sample recovery Monte-Carlo). A Design of Experiments (DOE) via 1,200 Latin Hypercube samples identifies pitch-kick timing and propellant loading as the dominant drivers of ascent performance, while a Differential Evolution optimizer confirms that guidance-tuning alone cannot resolve the structural deficits. Robustness checks reveal that open-loop guidance is knife-edge near the $T/W \approx 0.66$ cliff (ascent survival $P = 0.38–0.45$), and that a 2-MVac upper stage structurally exceeds the 5 $g$ acceleration limit (hitting **6.2–6.4 $g$**), mandating a structural or throttle-mitigation trade for Day 8.
 
@@ -29,7 +29,7 @@ The primary objective of the Day 7 work package is to deploy rigorous, AI-assist
 ## 2. Ascent Simulator Physics Repair and Validation (Arc A)
 
 ### 2.1 Formulation of the Repaired Integrator
-To replace the hobbyist-grade OpenRocket solver, a custom, high-fidelity 3-DOF planar ascent simulator was programmed in Python (`day7_sim/sim.py` and `vehicle.py`). The simulator integrates the equations of motion over a spherical, non-rotating Earth using a 4th-order Runge-Kutta (RK4) scheme with a fixed time-step of $\Delta t = 0.1$ s:
+To replace the hobbyist-grade OpenRocket solver, a custom, high-fidelity 3-DOF planar ascent simulator was programmed in Python (`simulations/day7_sim/sim.py` and `vehicle.py`). The simulator integrates the equations of motion over a spherical, non-rotating Earth using a 4th-order Runge-Kutta (RK4) scheme with a fixed time-step of $\Delta t = 0.1$ s:
 
 $$
 \frac{dx}{dt} = \frac{R_E}{R_E + h} \, v \cos\gamma, \qquad
@@ -90,7 +90,7 @@ A verification script (`validate.py`) evaluated the rebuilt simulator against ei
 
 ## 3. Design of Experiments and Sensitivity Analysis (Arc B2)
 
-To characterize the global design space and identify the main sensitivities of the ascent trajectory, a Latin Hypercube Sampling (LHS) Design of Experiments (DOE) was executed (`day7_sim/doe.py`). 1,200 samples (600 per leading configuration) were drawn across six primary parameters:
+To characterize the global design space and identify the main sensitivities of the ascent trajectory, a Latin Hypercube Sampling (LHS) Design of Experiments (DOE) was executed (`simulations/day7_sim/doe.py`). 1,200 samples (600 per leading configuration) were drawn across six primary parameters:
 1. **Kick Angle ($\theta_{\text{kick}}$):** $2.5^{\circ}–6.0^{\circ}$
 2. **Kick Start Time ($t_{\text{kick},0}$):** $10.0–20.0$ s
 3. **Lofting Bias ($\theta_{\text{loft}}$):** $0.0^{\circ}–28.0^{\circ}$
@@ -125,7 +125,7 @@ The key takeaway is that the orbital deficit is governed primarily by **guidance
 
 ## 4. Trajectory Optimization via Differential Evolution (Arc B3)
 
-To determine the absolute maximum performance achievable by the baseline vehicle configurations, a global trajectory optimization was performed using Scipy's `differential_evolution` algorithm (`day7_sim/doe.py`). The optimizer adjusted the four guidance parameters ($\theta_{\text{kick}}$, $t_{\text{kick},0}$, $\theta_{\text{loft}}$, and hold duration) to minimize the orbital insertion $\Delta v$ deficit, subject to three hard operational constraints: Max-Q $\le 35$ kPa, MECO altitude $\ge 50$ km, and peak S2 axial acceleration $\le 5.0$ $g$.
+To determine the absolute maximum performance achievable by the baseline vehicle configurations, a global trajectory optimization was performed using Scipy's `differential_evolution` algorithm (`simulations/day7_sim/doe.py`). The optimizer adjusted the four guidance parameters ($\theta_{\text{kick}}$, $t_{\text{kick},0}$, $\theta_{\text{loft}}$, and hold duration) to minimize the orbital insertion $\Delta v$ deficit, subject to three hard operational constraints: Max-Q $\le 35$ kPa, MECO altitude $\ge 50$ km, and peak S2 axial acceleration $\le 5.0$ $g$.
 
 ### 4.1 Optimization Ceilings
 The optimization results demonstrate that the hand-tuned grid points developed during the baseline repair were already extremely close to the physical guidance limits:
@@ -151,7 +151,7 @@ Even throttled down to their joint minimum throttle of 40% (or single-engine shu
 
 ## 5. First-Stage Recovery Sub-Problem Modeling (Arc B4)
 
-To evaluate first-stage recovery feasibility, a 2-DOF descent chain simulator was constructed (`day7_sim/recovery_sim.py` and `run_recovery.py`). The model begins at the exact staging state delivered by the honest ascent model: $h_{\text{sep}} = 66.5$ km, $v_{\text{sep}} = 1,892$ m/s, $\gamma_{\text{sep}} = 40.7^{\circ}$, and downrange distance $x_{\text{sep}} = 51$ km.
+To evaluate first-stage recovery feasibility, a 2-DOF descent chain simulator was constructed (`simulations/day7_sim/recovery_sim.py` and `run_recovery.py`). The model begins at the exact staging state delivered by the honest ascent model: $h_{\text{sep}} = 66.5$ km, $v_{\text{sep}} = 1,892$ m/s, $\gamma_{\text{sep}} = 40.7^{\circ}$, and downrange distance $x_{\text{sep}} = 51$ km.
 
 ### 5.1 Reentry and Entry Corridor Sizing
 The booster coasts along a ballistic trajectory to an apogee of **135.2 km**, reaching entry interface (70 km altitude) at $t = 400$ s with a velocity of $1,806$ m/s and flight-path angle $\gamma = -42^{\circ}$.
@@ -205,7 +205,7 @@ By integrating the downrange equations of motion through the entire ascent and d
 
 ## 6. Robustness and Monte-Carlo Dispersion Analysis (Arc B5)
 
-To evaluate the operational robustness of the vehicle designs under real-world uncertainties, two multi-sample Monte-Carlo simulations were executed (`day7_sim/mc.py`).
+To evaluate the operational robustness of the vehicle designs under real-world uncertainties, two multi-sample Monte-Carlo simulations were executed (`simulations/day7_sim/mc.py`).
 
 ### 6.1 Ascent Monte-Carlo (400 samples per configuration)
 Dispersions were modeled as Normal distributions ($2\sigma$ limits): engine $I_{sp} \pm 1.5$ s, drag coefficient $C_D \pm 10\%$, stage dry masses $\pm 1\%$, pitch-kick angle $\pm 0.15^{\circ}$, and kick start time $\pm 1$ s. The open-loop guidance profiles optimized in Section 4 were flown across all samples:

@@ -34,7 +34,7 @@ A 10-day team project to **conceptually design a reusable launch vehicle with an
 | 3 | 13-Jul | Propulsion system (engine selection) | ✅ **Complete** | Report pp. 18–26; kerolox selected; GG vs SC vs FFSC trade; Merlin 1D + MVac; **Deck: Day3-presentation.pdf** |
 | 4 | 14-Jul | Mass budget & advanced materials (vehicle architecture) | ✅ **Complete** | Report pp. 29–76 (47 pp, w/ 36 refs); closed 600 t mass budget; hybrid catch architecture; materials map; **Deck: Day 4 (1).pdf** |
 | 5 | 15-Jul | Aerodynamics & trajectory (flight profile) | ✅ **Complete (but see §4 — validation integrity issues)** | Report pp. 77–87; OpenRocket run; **Deck: Day 5 (1).pdf**; **Data: master data.pdf** |
-| 6 | 16-Jul | Reusability strategy (recovery concept) | ✅ **FINALIZED (this review cycle)** — see `02_Day6_Reusability_Strategy_FINAL.md` | Report pp. 88–91 draft was truncated & contradicted Day 4 (boostback/legs); finalized version rebases everything on Day 1–4 + 16 cited sources; Day-5-derived states removed pending Day 7 repair |
+| 6 | 16-Jul | Reusability strategy (recovery concept) | ✅ **FINALIZED (this review cycle)** — see `docs/reports/day06_reusability_strategy.md` | Report pp. 88–91 draft was truncated & contradicted Day 4 (boostback/legs); finalized version rebases everything on Day 1–4 + 16 cited sources; Day-5-derived states removed pending Day 7 repair |
 | 7 | 17-Jul | AI-assisted optimization (design iteration) | ⬜ Pending | nothing yet |
 | 8 | 18-Jul | Reliability & economics (cost and risk analysis) | ⬜ Pending | seeded data exists (Day 1 cost table; Day 4 mass/hardware split; Day 3 refurbishment drivers) |
 | 9 | 19-Jul | Final system integration (technical review) | ⬜ Pending | nothing yet |
@@ -79,7 +79,7 @@ Report says "Max-Q ~25–30 kPa at ~12 km" and the verdict states "~28 kPa, well
 The Day 6 draft (p. 90–91) writes a **three-burn profile starting with a "Boostback Burn"** and ends mid-sentence **"The landing legs deploy just before …"**. Both are wrong for this vehicle:
 - **Boostback ⇒ RTLS.** The Day 4 baseline is **downrange ocean catch** (explicitly to *avoid* boostback). The 18 t reserve provides ~1.0–1.1 km/s; an RTLS boostback adds 300–500 m/s it cannot afford. The report even says so on p. 90 ("Site flexibility … drone ships for downrange recovery").
 - **Landing legs are the documented fallback**, not the baseline (catch ring + wear shoes + crush pads). Day 5's flight profile also says "landing legs deploy" (p. 86) — same inconsistency carried over.
-The draft also has a duplicated section number (two "1.3") and ends mid-sentence. → See companion file `02_Day6_Reusability_Strategy_DRAFT.md` for a corrected, ready-to-paste continuation.
+The draft also has a duplicated section number (two "1.3") and ends mid-sentence. → See companion file `docs/working_notes/day06_superseded_draft.md` for a corrected, ready-to-paste continuation.
 
 ### 🟠 MAJOR-5 — Staging/flight-profile numbers in the report text vs the data
 - First-stage burn: report "**~158 s**" vs data MECO at **150 s**.
@@ -126,7 +126,7 @@ The draft also has a duplicated section number (two "1.3") and ends mid-sentence
 
 **Deliverable due:** *Recovery concept* (report section + deck).
 
-1. **Adopt the corrected Day 6 text** in `02_Day6_Reusability_Strategy_DRAFT.md` (ready to paste; fixes MAJOR-4; reuses LM 10B-verified facts; binds every burn to the 18 t / ~1.09 km/s reserve).
+1. **Adopt the corrected Day 6 text** in `docs/working_notes/day06_superseded_draft.md` (ready to paste; fixes MAJOR-4; reuses LM 10B-verified facts; binds every burn to the 18 t / ~1.09 km/s reserve).
 2. **Draw 3 schematics** (no CAD needed): (a) recovery timeline state-machine (separation→coast→entry burn→grid-fin descent→terminal burn→catch→safing), (b) catch-ring load-path diagram, (c) map-style downrange geometry (~600 km) with vessel window. 
 3. **Produce the Day 6 deck** (~14 slides, outline included in the draft file) mirroring the bilingual style of prior decks; correct the date (16/7/2026).
 4. **Close the loop explicitly to Day 4:** landing legs = documented fallback option; catch = baseline. One sentence in both places prevents a Day 9 review finding.

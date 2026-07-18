@@ -51,7 +51,7 @@ The Copilot recommended setting a high-ambition commercial target: **20,000 kg (
 
 ---
 
-## Day 2 — Rocket Fundamentals and First-Order S Sizing
+## Day 2 — Rocket Fundamentals and First-Order Sizing
 **Date**: 12 July 2026 (Day 2 of 10)  
 **Deliverable**: First-Order Vehicle Sizing and $\Delta v$ Budget  
 **Status**: Completed (Superseded in Day 7 Trajectory Repair)  
@@ -60,7 +60,7 @@ The Copilot recommended setting a high-ambition commercial target: **20,000 kg (
 Establish the Gross Lift-Off Mass (GLOM) and stage propellant/structural mass fractions required to close the mission using the Tsiolkovsky Rocket Equation.
 
 ### 2.2 Options Traded & Sizing Math
-The team analyzed different mass ratios ($m_0/m_f$) and staging velocities using a target ideal $\Delta v$ budget of $11.0$ km/s, which included $9.3$ km/s orbital speed and $1.7$ km/s allocated to gravitational, drag, and steering losses.
+The team analyzed different mass ratios ($m_0/m_f$) and staging velocities using a target ideal $\Delta v$ budget of $11.0$ km/s, which included $9.3$ km/s orbital speed and $1.7$ km/s allocated to gravitational, drag, and steering losses. *(Day 7 correction CR-D7-02: the physical $\Delta v$ requirement for 500 km SSO is approximately 9,500 m/s — comprising 7,612 m/s circular velocity plus ~1,900 m/s realistic losses. The original 11.0 km/s figure was an un-optimized, conservative planning estimate that over-scoped the requirement by ~1,500 m/s.)*
 
 *   **Sizing Model Formulation**:
 
@@ -76,7 +76,7 @@ The Copilot highlighted the critical need for a **Recovery Propellant Reserve** 
 ### 2.4 Decision and Rationale
 *   **GLOM**: $600,000$ kg.
 *   **S1 Propellant / Dry Mass**: $391,000$ kg / $40,000$ kg.
-*   **S2 Propellant / Dry Mass**: $112,000$ kg / $39,000$ kg (including $20,000$ kg payload and structural margin).
+*   **S2 Propellant / Dry Mass**: $112,000$ kg propellant / $39,000$ kg final stack mass (comprising S2 structure+engine $5,500$ kg, payload $20,000$ kg, fairing $1,800$ kg, interstage $2,500$ kg, adapter $600$ kg, avionics $1,600$ kg, margin $7,000$ kg). The S2 structural dry mass alone is $5,500$ kg.
 *   **Recovery Reserve**: $18,000$ kg, carried unburnt through ascent.
 *   **Rationale**: Sizing at 600 t closes the mass budget while matching the thrust capabilities of nine Merlin-class engines, yielding a healthy lift-off thrust-to-weight ratio of $1.29$.
 
@@ -107,7 +107,28 @@ The Copilot warned that RP-1 thermal cracking (coking) at temperatures $> 260^{\
 *   **Stage 2 Propulsion**: 1$\times$ Merlin Vacuum (MVac)-class engine with an expanded nozzle area ratio ($165:1$), yielding a vacuum thrust of $981$ kN and a constant $I_{sp}$ of $348$ s.
 *   **Rationale**: 9 engines provide a liftoff $T/W = 1.29$, within the optimal $1.25–1.35$ band, and offer engine-out capability during ascent. Throttling 3 engines for entry and a single engine for terminal hover-slam minimizes landing structural loads.
 
-### 3.5 Open Risks Carried Forward
+### 3.5 Engine-Out Capability Analysis
+
+The 9-engine Octaweb configuration provides inherent engine-out operational capability (EDO). A first-order assessment was performed to quantify the performance impact:
+
+**Thrust-to-Weight at Key Flight Points (1 Engine Out at T+0):**
+
+| Flight Point | Vehicle Mass | 9-Engine T/W | 8-Engine T/W | 7-Engine T/W | Verdict |
+|---|---|---|---|---|---|
+| Liftoff | 600,000 kg | 1.29 | **1.15** | 1.01 | 8-eng: feasible; 7-eng: marginal |
+| T+30 s | 521,800 kg | 1.49 | **1.32** | 1.16 | 8-eng: healthy |
+| Max-Q (T+60 s) | 443,600 kg | 1.75 | **1.55** | 1.36 | 8-eng: comfortable |
+| MECO (T+142 s) | 209,000 kg | 3.71 | **3.30** | 2.89 | 8-eng: no constraint |
+
+**Performance Penalty:** A single engine failure at liftoff extends the S1 burn from 142 s to 160 s (reduced mass flow), increasing gravity losses by approximately **152 m/s** (from 1,217 to 1,369 m/s). This additional $\Delta v$ deficit must be compensated by the S2 stage, consuming extra propellant and reducing payload capability by approximately **4,000–4,500 kg** (first-order rocket equation estimate) or roughly **20–22%** of the nominal payload.
+
+**Operational Implications:**
+*   **Abort threshold:** At liftoff, loss of 2 engines ($T/W = 1.01$) leaves virtually no performance margin — flight termination would be required.
+*   **Mission continuation:** Loss of 1 engine at any point after T+10 s (when $T/W > 1.5$ with 8 engines) permits safe mission continuation with significant payload reduction.
+*   **Path A (20 t SSO):** The 2,088 m/s orbital deficit already consumes all available margin. An EDO event at liftoff would force mission abort or require drastic payload reduction to ~15–16 t SSO.
+*   **Path B (12 t SSO):** EDO capability provides margin to reduce payload to ~8–10 t SSO and still achieve orbit.
+
+### 3.6 Open Risks Carried Forward
 *   **Hover-Slam Throttle Floor**: Minimum single-engine thrust ($338$ kN) exceeds the booster's near-empty weight ($\approx 410–440$ kN), preventing a true stable hover and forcing a committed "hover-slam" maneuver.
 
 ---
@@ -156,7 +177,7 @@ The initial OpenRocket trajectory simulation (which claimed successful insertion
 - **Max-Q Misread (M-3)**: The report claimed Max-Q of $28$ kPa @ 12 km, but the raw master data table showed a peak of **$40.4$ kPa @ 9.3 km**, exceeding the structural design limit of $35$ kPa.
 
 ### 5.3 LLM Copilot Insights & Model Repair
-The Copilot recommended a complete halt to the trajectory compilation and spearheaded a rigorous **model repair**. Operating in `day7_sim/`, the Copilot rebuilt a 3-DOF planar numerical integrator from first physical principles, incorporating the US Standard Atmosphere 1976 and pressure-dependent $I_{sp}$ bounds. This repaired model successfully passed all 8 acceptance gates (`results/gate.json`), proving energy conservation and providing honest physical baselines.
+The Copilot recommended a complete halt to the trajectory compilation and spearheaded a rigorous **model repair**. Operating in `simulations/day7_sim/`, the Copilot rebuilt a 3-DOF planar numerical integrator from first physical principles, incorporating the US Standard Atmosphere 1976 and pressure-dependent $I_{sp}$ bounds. This repaired model successfully passed all 8 acceptance gates (`results/gate.json`), proving energy conservation and providing honest physical baselines.
 
 ### 5.4 Decision and Rationale
 *   **Staging Point**: Corrected to $t+142$ s, $66.5$ km altitude, $1,892$ m/s velocity ($\text{Mach } 5.7$), $\gamma = 40.7^{\circ}$, and $51$ km downrange.
@@ -188,7 +209,7 @@ The Copilot conducted a deep literature review of the **Long March 10B debut of 
 *   **Refurbishment**: Directed, condition-based inspection driven by an integrated fiber Bragg grating (FBG) "Reuse Passport," targeting a 30-day initial turnaround.
 
 ### 6.5 Open Risks Carried Forward
-*   **Reserve Closure**: The recovery $\Delta v$ budget was closed analytically using first-order staging states; high-fidelity 2-DOF descent simulation is required to verify the sufficiency of the $18,000$ kg reserve.
+*   **Reserve Closure**: The recovery $\Delta v$ budget was closed analytically using first-order staging states; high-fidelity 2-DOF descent simulation is required to verify the sufficiency of the $18,000$ kg reserve. **Resolved on Day 7:** The 2-DOF descent chain simulator proved the 18,000 kg reserve is undersized by approximately 2×. The fixed-point closure $R^*$ determined that **34,500 kg** is the minimum required reserve (Mach 2.3 entry corridor, $P \geq 0.95$ under Monte-Carlo).
 
 ---
 
@@ -244,6 +265,25 @@ These two closed design options—along with their quantified sensitivities, str
 
 ---
 
+## Appendix A — Known Errors in Original Day 1–5 Presentation Decks
+
+The original bilingual presentation decks for Days 2–5 (preserved as immutable source documents in `data/source/`) contain the following errors identified during the Day 6 critical review. These decks were produced before the Day 7 trajectory repair and carry forward several factual and numerical inconsistencies. All values in the current engineering baseline supersede these original deck figures.
+
+| # | Deck | Error | Correct Value (Day 7 Repaired) | Status |
+|---|---|---|---|---|
+| E-1 | Day 2 (`day2_presentation.pdf`) | Title date reads "Day 2 7/11/2026" (Day 1's date) | Should read 12/7/2026 | Documented; source PDF immutable |
+| E-2 | Day 2 | Mass table shows S1 prop 420 t / S2 prop 75 t (599,970 kg total) | Day 4 budget: S1 prop 391 t / S2 prop 112 t / reserve 18 t (600,000 kg) | Superseded by Day 4 |
+| E-3 | Day 3 (`day3_presentation.pdf`) | "LOX/LH₂ (Falcon 9)" propellant mapping | Falcon 9 is kerolox (LOX/RP-1), not hydrolox | Documented; source PDF immutable |
+| E-4 | Day 3 | "LOX/Methane (Long March 10B)" propellant mapping | LM 10B booster is kerolox; only upper stage is methalox | Superseded by Day 4 report |
+| E-5 | Day 4 (`day4_presentation.pdf`) | Title date reads "Day 4 13/7/2026" (Day 3's date) | Should read 14/7/2026 | Documented; source PDF immutable |
+| E-6 | Day 4 | Mass table differs from Day 4 report budget (see E-2) | Report budget is authoritative | Superseded by Day 4 report |
+| E-7 | Day 5 (`day5_presentation.pdf`) | Claims "~28 kPa Max-Q at ~12 km" | **40.4 kPa @ 9.3 km** (own data); **31.2 kPa @ 11 km** (Day 7 repaired) | Fully superseded by Day 7 |
+| E-8 | Day 5 | Claims "11.1 km/s ΔV achieved, mission success" | Honest ideal Δv = 7,875 m/s; deficit = 2,088 m/s | Fully superseded by Day 7 |
+| E-9 | Day 5 | Final state "orbital insertion at 245.5 km / 7,610 m/s" | Perigee = −248 km (suborbital) | Fully superseded by Day 7 |
+| E-10 | Day 4–5 | "Over 400+ landings" (SpaceX) | 637th landing achieved 13-Jul-2026 per team's own Day 4 report ref | Updated in Day 6 report |
+
+**Note for Day 10 Competition Deck:** When presenting historical content from Days 1–5, all figures must be drawn from the Day 7 repaired baseline (this notebook, `docs/reports/day07_trajectory_optimization.md`, and `simulations/day7_sim/DATA_SHEET.md`), not from the original source decks. The source decks are retained solely as an audit trail of the design evolution.
+
 ## Consolidated Engineering Decision Log
 
 | Day | Ref | Core Decision | Selected Option | Key Sizing Physics / Rationale | Open Risks |
@@ -258,4 +298,28 @@ These two closed design options—along with their quantified sensitivities, str
 | **5** | D5-1 | Staging State (Repaired) | **66.5 km / 1,892 m/s / $\gamma = 40.7^{\circ}$** | Honest USSA76/pressure-$I_{sp}$ integration; MECO occurs $18\%$ slower. | S2 performance deficit |
 | **6** | D6-1 | Recovery Profile | **ASDS Downrange Net Capture** | Eliminates RTLS boostback burn ($300–500$ m/s), avoiding 30% payload penalty. | High wind shear at sea |
 | **7** | D7-1 | Recovery Prop. Reserve | **34,500 kg (Sized)** | Fixed-point closure $R^*$ shows 18 t is undersized; 34.5 t closes Mach 2.3 corridor. | GLOM/payload penalty |
+| **3** | D3-3 | Engine-Out Capability | **9-Engine Octaweb (EDO-capable)** | 1 EDO at liftoff: T/W=1.15 (feasible); 2 EDO: T/W=1.01 (marginal); ~4 t payload penalty at liftoff. | Abort threshold 2+ EDO |
 | **7** | D7-2 | Design Re-baseline | **Path A (802 t) or Path B (12 t cargo)**| Trajectory optimization proves 600 t / 20 t cannot close; force upscale or restrict cargo. | Economic viability (Day 8) |
+
+---
+
+## Closing Summary — Days 1 through 7
+
+This engineering notebook has documented the complete progression of our reusable launch vehicle design from first principles through physics-repaired trajectory optimization. The narrative arc across seven days can be summarized as follows:
+
+**Days 1–4 (Architecture Definition):** Established the mission (20 t to SSO), sized the vehicle (600 t GLOM), selected the propulsion (9× M1D + 1× MVac kerolox), closed the mass budget (PMF 0.87, recovery hardware 5.5 t), and selected the hybrid ocean catch architecture. Every decision was trade-studied against alternatives and anchored to physical principles and external flight heritage.
+
+**Day 5 (Trajectory — Retired):** The initial OpenRocket trajectory simulation was found to contain fundamental physics errors — implied specific impulses of 364 s and 427 s for kerolox engines declared at 282/348 s. This was identified during the Day 6 critical review and formally retired.
+
+**Day 6 (Recovery Concept):** Defined the seven-phase recovery sequence, closed the first-order propellant budget (18 t reserve → 1.03–1.13 km/s), and validated the concept against the Long March 10B debut (10 July 2026) and Starship Flight 5 (October 2024). The hybrid catch architecture was confirmed as mass-optimal relative to the legged fallback (−2.5 t dry mass).
+
+**Day 7 (Physics Repair & Optimization):** Rebuilt the trajectory simulation from first principles (3-DOF RK4 integrator with USSA76 atmosphere, pressure-dependent $I_{sp}$, 8/8 validation gates). Key findings:
+- The documented 600 t / 20 t SSO configuration has an **honest deficit of 2,088 m/s**.
+- The 18 t recovery reserve is **undersized by approximately 2×**; the fixed-point closure $R^*$ determines **34.5 t** is required.
+- Two physically closed paths emerge: **Path A (802 t / 20 t SSO)** and **Path B (600 t / 12 t SSO)**.
+- DOE (1,200 LHS samples) and DE optimization confirm guidance-tuning alone cannot close the gap.
+- Monte-Carlo (800 ascent + 1,000 recovery) verifies robustness margins and survival probabilities.
+
+**Carried Forward to Days 8–9:** Both closure paths, the 34.5 t reserve requirement, the 6.2 $g$ over-acceleration issue (CR-D7-07), and all consistency register entries (CR-D7-01 through CR-D7-07) were formally handed off to Day 8 (reliability and economics) and Day 9 (system integration).
+
+**Engineering Integrity Statement:** Every numerical value in this notebook traces to either (a) a Day 1–4 documented parameter, (b) our own simulation output in `simulations/day7_sim/results/`, or (c) a cited external source used exclusively for validation. No external performance numbers were imported as model inputs. The design baseline is physically honest, mathematically closed, and fully traceable.

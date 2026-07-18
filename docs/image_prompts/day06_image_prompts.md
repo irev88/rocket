@@ -2,13 +2,13 @@
 
 **项目**：可重复使用运载火箭 AI 协同设计暑期课程（11–20 July 2026）
 **交付日**：Day 6 · 2026年7月16日
-**配套文件**：`Day6_可重复使用策略_回收概念.pptx`（15 页）、`02_Day6_Reusability_Strategy_FINAL.md`
+**配套文件**：`presentations/day06_reusability.pptx`（15 页）、`docs/reports/day06_reusability_strategy.md`
 
 ---
 
 ## 1. 使用说明（生成通则）
 
-1. **示意图已齐备，本文件仅覆盖"渲染/写实类"配图。** 四幅技术示意图（飞行序列、负载路径、Δv 闭合瀑布图、悬停猛击点火窗口）已作为矢量 SVG 完成并嵌入 PPT（位于 `day6_assets/`，PNG 渲染同源）。本文件为剩余 6 幅写实配图提供提示词。
+1. **示意图已齐备，本文件仅覆盖"渲染/写实类"配图。** 四幅技术示意图（飞行序列、负载路径、Δv 闭合瀑布图、悬停猛击点火窗口）已作为矢量 SVG 完成并嵌入 PPT（位于 `assets/diagrams/`，PNG 渲染同源）。本文件为剩余 6 幅写实配图提供提示词。
 2. **提示词中英双列**：图像生成模型（Midjourney / DALL·E / Stable Diffusion / Flux 等）对英文提示词响应更稳定，**建议直接使用英文版**；中文版供人工校对语义。
 3. **通用负面提示词（negative prompt）**——所有图统一附加：
    > `text, letters, watermark, logo, brand name, flag insignia, company insignia, people faces, distorted rocket, extra engines, cartoon, low detail, oversaturated`
@@ -123,4 +123,4 @@
 
 ---
 
-*文件结束 · 与 `Day6_可重复使用策略_回收概念.pptx`、`02_Day6_Reusability_Strategy_FINAL.md` 配套使用*
+*文件结束 · 与 `presentations/day06_reusability.pptx`、`docs/reports/day06_reusability_strategy.md` 配套使用*

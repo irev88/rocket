@@ -8,7 +8,7 @@
 
 | # | Defect (audit ref) | Evidence |
 |---|---|---|
-| D1 | **Energy non-conservation (C-1)** | Old data implies effective Isp: S1 ≈ **364 s** (envelope 282–311), S2 ≈ **427 s** (declared 348) — re-derived with the repaired model's honest losses (`day7_sim/results/S0_audit_implied_isp.json`). S2 gained 5,080 m/s vs its own Tsiolkovsky bound ~4,620 m/s. |
+| D1 | **Energy non-conservation (C-1)** | Old data implies effective Isp: S1 ≈ **364 s** (envelope 282–311), S2 ≈ **427 s** (declared 348) — re-derived with the repaired model's honest losses (`simulations/day7_sim/results/S0_audit_implied_isp.json`). S2 gained 5,080 m/s vs its own Tsiolkovsky bound ~4,620 m/s. |
 | D2 | **Orbit not closed, unflagged (C-2)** | Final 245.5 km / 7,610 m/s ⇒ perigee −248 km (suborbital), yet reported as mission success. |
 | D3 | **Max-Q misreported (M-3)** | Claimed ~28 kPa @ 12–15 km; the model's *own* table shows **40.4 kPa @ t+60 s / 9.3 km / Mach 1.24**. |
 | D4 | **Internal inconsistency** | Master data `v` column cannot be integrated from its own `acceleration` column anywhere in t=0–150 s (e.g., stated accel 2.9→6.9 m/s² averages ≤4.9 yet Δv=420 m/s ⇒ 7.0 required). Velocity column is inflated throughout S1 as well. |
@@ -18,7 +18,7 @@ The mass bookkeeping was the only sound element (58 t staging drop; 39/37.2 t fi
 
 ## 2. Repaired model (acceptance gate 8/8 PASS)
 
-Rebuilt from scratch in `day7_sim/` (RK4, spherical Earth, USSA76 atmosphere, Isp(h) with vacuum-value ceiling, explicit S2 loft guidance, q/g tracked every step). Gate G1–G8 all PASS (`day7_sim/results/gate.json`): Isp in-envelope, mass closure exact, energy-balance residual **3 m/s**, MECO/Max-Q inside real-flight family bands (Mach 5.7 @ 66.5 km; Q 31.2 kPa @ t+70 s — F9-class consistent).
+Rebuilt from scratch in `simulations/day7_sim/` (RK4, spherical Earth, USSA76 atmosphere, Isp(h) with vacuum-value ceiling, explicit S2 loft guidance, q/g tracked every step). Gate G1–G8 all PASS (`simulations/day7_sim/results/gate.json`): Isp in-envelope, mass closure exact, energy-balance residual **3 m/s**, MECO/Max-Q inside real-flight family bands (Mach 5.7 @ 66.5 km; Q 31.2 kPa @ t+70 s — F9-class consistent).
 
 ## 3. Honest replacement numbers (supersede Day 5 tables)
 
@@ -45,8 +45,8 @@ Rebuilt from scratch in `day7_sim/` (RK4, spherical Earth, USSA76 atmosphere, Is
 
 ## 5. What this changes downstream (pointers)
 
-- **Day 6**: recovery-side conclusions stand; ascent-fed numbers corrected via addendum v1.1 (`06_Day6_Addendum_v1_1.md`).
+- **Day 6**: recovery-side conclusions stand; ascent-fed numbers corrected via addendum v1.1 (`docs/working_notes/day06_addendum_v1.1.md`).
 - **Day 7**: proceeds on the repaired model (Arc B/C per plan).
 - **Day 8**: architecture decision package awaiting (iteration ladder: 600 t ≈ 6.6 t reusable · 2× MVac ≈ 12 t · expendable 2× ≈ 14 t · scaled family f≈1.39 ⇒ 20 t closed at ≈802 t GLOM).
 
-*All values reproducible: `cd day7_sim && python3 studies.py && python3 validate.py && python3 plots.py` → `results/`*
+*All values reproducible: `cd simulations/day7_sim && python3 studies.py && python3 validate.py && python3 plots.py` → `results/`*

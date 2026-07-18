@@ -1,7 +1,7 @@
-# ⚠️ SUPERSEDED — See `02_Day6_Reusability_Strategy_FINAL.md`
+# ⚠️ SUPERSEDED — See `docs/reports/day06_reusability_strategy.md`
 
 This working draft (16 July, morning) was replaced by the finalized, research-backed Day 6 report at
-**`/home/user/02_Day6_Reusability_Strategy_FINAL.md`** later the same day.
+**`docs/reports/day06_reusability_strategy.md`** later the same day.
 
 Key reasons for supersession:
 1. This draft still carried state estimates derived from the Day 5 OpenRocket data (82 km / 2.53 km/s staging,

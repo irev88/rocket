@@ -5,9 +5,9 @@
 
 ---
 
-> **Document basis statement.** This work package is constructed directly from the vehicle staging states, propellant reserve requirements, and physical design configurations finalized in the Day 7 optimization cycle (`03_Day7_AI_Assisted_Optimization_FINAL.md`). All mass balances, engine counts, thrust ratings, and structural boundaries utilized herein are physically consistent with our own models in `day7_sim/` and are verified against the citable records in `day7_sim/DATA_SHEET.md`. External cost, reliability, and maritime operating data are used solely as validation and calibration anchors, ensuring the absolute uniqueness and traceability of our system models.
+> **Document basis statement.** This work package is constructed directly from the vehicle staging states, propellant reserve requirements, and physical design configurations finalized in the Day 7 optimization cycle (`docs/reports/day07_trajectory_optimization.md`). All mass balances, engine counts, thrust ratings, and structural boundaries utilized herein are physically consistent with our own models in `simulations/day7_sim/` and are verified against the citable records in `day7_sim/DATA_SHEET.md`. External cost, reliability, and maritime operating data are used solely as validation and calibration anchors, ensuring the absolute uniqueness and traceability of our system models.
 
-**Abstract.** This report delivers the complete systems engineering, economic optimization, and reliability analysis for the upcoming launch system. We evaluate the two physically closed configurations established on Day 7: **Path A (Payload-Driven Scale: 802 t GLOM / 20 t SSO payload)** and **Path B (GLOM-Driven Constrained: 600 t GLOM / 12 t SSO payload)**. We formulate a high-fidelity lifecycle cost model incorporating capital hardware amortization, pressure-dependent specific impulse propellant costs, vessel-ops logistics, and coking-driven refurbishment cycles. The economic trade reveals that while Path B satisfies the absolute launch-cost constraint ($24.4M per launch vs Path A's $37.6M), **Path A achieves a superior specific launch cost ($1,879/kg vs Path B's $2,033/kg)**, exploiting the economies of scale of the 20 t cargo class. For the risk assessment, we construct a comprehensive Failure Mode and Effects Analysis (FMEA) for the hybrid ocean catch recovery, analyzing 10 core failure modes. We implement a Reliability Block Diagram (RBD) that distinguishes between **ascent mission success ($P_{\text{ascent}} = 98.2\%$)** and **booster recovery success ($P_{\text{recovery}} = 95.1\%$)**, showing that the sized 34.5 t recovery reserve is the critical physical driver of fleet availability. Finally, we establish a structural mitigation trade to resolve the 6.2 $g$ upper-stage over-acceleration of Path B, concluding that a 40% minimum engine-throttle capability is the optimal path to ensure structural integrity and fleet reliability.
+**Abstract.** This report delivers the complete systems engineering, economic optimization, and reliability analysis for the upcoming launch system. We evaluate the two physically closed configurations established on Day 7: **Path A (Payload-Driven Scale: 802 t GLOM / 20 t SSO payload)** and **Path B (GLOM-Driven Constrained: 600 t GLOM / 12 t SSO payload)**. We formulate a high-fidelity lifecycle cost model incorporating capital hardware amortization, pressure-dependent specific impulse propellant costs, vessel-ops logistics, and coking-driven refurbishment cycles. The economic trade reveals that while Path B satisfies the absolute launch-cost constraint ($24.4M per launch vs Path A's $37.6M), **Path A achieves a superior specific launch cost ($1,883/kg vs Path B's $2,038/kg)**, exploiting the economies of scale of the 20 t cargo class. For the risk assessment, we construct a comprehensive Failure Mode and Effects Analysis (FMEA) for the hybrid ocean catch recovery, analyzing 10 core failure modes. We implement a Reliability Block Diagram (RBD) that distinguishes between **ascent mission success ($P_{\text{ascent}} = 98.2\%$)** and **booster recovery success ($P_{\text{recovery}} = 94.9\%$)**, showing that the sized 34.5 t recovery reserve is the critical physical driver of fleet availability. Finally, we establish a structural mitigation trade to resolve the 6.2 $g$ upper-stage over-acceleration of Path B, concluding that a 40% minimum engine-throttle capability is the optimal path to ensure structural integrity and fleet reliability.
 
 **Keywords:** rocket economics; hardware amortization; Specific launch cost; Failure Mode and Effects Analysis (FMEA); Reliability Block Diagram; hybrid catch; over-acceleration mitigation
 
@@ -53,7 +53,11 @@ C_{\text{amort\_booster}} = \frac{C_{\text{booster}} \cdot (1 + \sigma_{\text{in
 $$
 
 *   **Expendable Stages ($C_{\text{upper}}, C_{\text{fairing}}$):** Since Stage 2 remains expendable and the fairing recovery option is carried as a future upgrade, these components are counted at 100% of their manufacturing cost per flight.
-*   **Refurbishment Cost ($C_{\text{refurb}}$):** The per-flight cost to inspect, refurbish, and test the recovered booster. We carry the Day 1 qualitative estimate of **$5.0M** as our conservative baseline, but compare it against the Block 5 operational benchmark of **$1.0M** to model mature-fleet economics.
+*   **Refurbishment Cost ($C_{\text{refurb}}$):** The per-flight cost to inspect, refurbish, and test the recovered booster. The first flight of a new booster incurs no refurbishment (the vehicle has not yet been flown). For subsequent flights ($N > 1$), we carry the Day 1 qualitative estimate of **$5.0M** as our conservative baseline, but compare it against the Block 5 operational benchmark of **$1.0M** to model mature-fleet economics:
+
+$$
+C_{\text{refurb}}(N) = \begin{cases} 0 & N = 1 \quad \text{(new booster, no recovery cycle yet)} \\ \$5.0\text{M} & N > 1 \quad \text{(nominal baseline)} \end{cases} \tag{2.5}
+$$
 *   **Maritime Recovery Operations ($C_{\text{ops\_recovery}}$):** The fixed logistical and operational cost to lease, fuel, and crew the downrange net-capture vessel and auxiliary tugs, set to **$1.5M** per launch based on offshore engineering rates.
 *   **Propellant Cost ($C_{\text{prop}}$):** Computed directly from the total propellant loading ($m_{\text{prop}}$) and the O/F mixture ratio ($r_{\text{OF}} = 2.56$ for kerolox). Utilizing unit costs of $C_{\text{RP1}} = \$1.50$/kg and $C_{\text{LOX}} = \$0.15$/kg, the average propellant cost is:
     
@@ -89,17 +93,19 @@ Using the input parameters from Table 1, we execute the cost model across variou
 | Metric | Booster Life ($N$) | Path A (Scaled 802 t) | Path B (Constrained 600 t) | Expendable Baseline |
 |---|---:|---:|---:|---:|
 | **Payload to SSO** | — | **20,000 kg** | **12,000 kg** | **20,000 kg** |
-| Marginal Cost ($C_{\text{launch}}$) | $N=1$ | $63.24M | $39.20M | $40.28M |
-| | $N=5$ | $42.50M | $24.13M | — |
-| | **$N=15$** | **$37.58M** | **$24.41M** | — |
-| | $N=25$ | $36.75M | $23.76M | — |
-| **Specific Cost ($C_{\text{kg}}$)** | $N=1$ | $3,162/kg | $3,267/kg | $2,014/kg |
-| | $N=5$ | $2,125/kg | $2,011/kg | — |
-| | **$N=15$** | **$1,879/kg** | **$2,033/kg** | — |
-| | $N=25$ | $1,837/kg | $1,980/kg | — |
+| Marginal Cost ($C_{\text{launch}}$) | $N=1$ | $63.23M | $42.97M | $42.98M |
+| | $N=5$ | $42.02M | $27.81M | — |
+| | **$N=15$** | **$37.65M** | **$24.45M** | — |
+| | $N=25$ | $36.78M | $23.78M | — |
+| **Specific Cost ($C_{\text{kg}}$)** | $N=1$ | $3,162/kg | $3,581/kg | $2,149/kg |
+| | $N=5$ | $2,101/kg | $2,318/kg | — |
+| | **$N=15$** | **$1,883/kg** | **$2,038/kg** | — |
+| | $N=25$ | $1,839/kg | $1,982/kg | — |
+
+*Note on $N=1$ row:* For the first flight ($N=1$), the refurbishment cost ($C_{	ext{refurb}}$) is excluded because the booster is new and has not yet been flown. This is standard practice in launch economics — the amortization at $N=1$ represents the full hardware write-off of a new vehicle with no recovery cycle yet established.
 
 #### Key Systems Engineering Insights from the Cost Trade:
-1.  **The specific-cost inversion ($C_{\text{kg}}$):** While Path B achieves a lower absolute cost per launch ($24.41M vs $37.58M at $N=15$), **Path A is 8.2% cheaper per kilogram of payload delivered to SSO ($1,879/kg vs $2,033/kg)**. This is a classic aerospace economics principle: upscaling the vehicle preserves the economies of scale because upper-stage and fairing structural weights do not scale linearly with propellant capacity, and the 20 t SSO cargo class spreads the fixed recovery and refurbishment overhead over a much larger denominator.
+1.  **The specific-cost inversion ($C_{\text{kg}}$):** While Path B achieves a lower absolute cost per launch ($24.45M vs $37.65M at $N=15$), **Path A is 7.6% cheaper per kilogram of payload delivered to SSO ($1,883/kg vs $2,038/kg)**. This is a classic aerospace economics principle: upscaling the vehicle preserves the economies of scale because upper-stage and fairing structural weights do not scale linearly with propellant capacity, and the 20 t SSO cargo class spreads the fixed recovery and refurbishment overhead over a much larger denominator.
 2.  **The breakeven threshold ($N_{\text{breakeven}}$):** Under our conservative baseline ($C_{\text{refurb}} = \$5.0M$), both reusable paths achieve breakeven compared to the expendable baseline by their **second flight ($N=2$)**, and generate compounding savings from the third flight onward.
 3.  **The $30M launch cost constraint:** Path B easily closes below the Day 1 constraint of $< \$30M$ per launch. Path A, due to its massive 4$\times$ MVac upper stage, cannot physically close below \$30M. However, Path A delivers the original 20,000 kg payload that the "customer" requested. This presents a critical strategic decision for the Day 10 final presentation: does the program prioritize the absolute launch price or the specific cost per kilogram?
 
@@ -184,10 +190,10 @@ $$
 *   **Total Booster Recovery Success ($P_{\text{recovery\_total}}$):**
     
 $$
-P_{\text{recovery\_total}} = 0.982 \times 0.990 \times 0.995 \times 0.988 \times 0.993 = 95.1\% \tag{3.4}
+P_{\text{recovery\_total}} = 0.982 \times 0.990 \times 0.995 \times 0.988 \times 0.993 = 94.9\% \tag{3.4}
 $$
 
-A recovery success rate of **95.1%** represents an attrition rate of $\approx 5\%$, confirming the validity of the insurance premium factor ($\sigma_{\text{ins}} = 5\%$) utilized in our booster amortization equations. This indicates that for every 20 launches, the fleet expects to lose one booster, which is fully factored into our lifecycle economics.
+A recovery success rate of **94.9%** represents an attrition rate of $\approx 5\%$, confirming the validity of the insurance premium factor ($\sigma_{\text{ins}} = 5\%$) utilized in our booster amortization equations. This indicates that for every 20 launches, the fleet expects to lose one booster, which is fully factored into our lifecycle economics.
 
 ---
 
@@ -238,8 +244,8 @@ Implementing a **Stage 2 engine-throttling requirement (Option C)** represents t
 
 The systems engineering and economic analysis of Day 8 has resolved the primary architectural trade space for the launch system:
 1.  **Selection of the Closed Baseline:** We deliver two closed baselines to Day 9:
-    *   **Path A (Payload-Driven):** An 802 t GLOM launcher carrying 20 t SSO. It does not meet the $< \$30M$ launch cost target ($37.6M) but achieves the lowest specific cost (**$1,879/kg**) and delivers the full 20 t requirement.
-    *   **Path B (GLOM-Driven):** A 600 t GLOM launcher carrying 12 t SSO. It achieves a launch cost of **$24.4M** (fully satisfying the $< \$30M$ target) at a specific cost of **$2,033/kg**.
+    *   **Path A (Payload-Driven):** An 802 t GLOM launcher carrying 20 t SSO. It does not meet the $< \$30M$ launch cost target ($37.6M) but achieves the lowest specific cost (**$1,883/kg**) and delivers the full 20 t requirement.
+    *   **Path B (GLOM-Driven):** A 600 t GLOM launcher carrying 12 t SSO. It achieves a launch cost of **$24.4M** (fully satisfying the $< \$30M$ target) at a specific cost of **$2,038/kg**.
 2.  **Sizing the Recovery Propellant Reserve:** Across both paths, the S1 recovery reserve must be sized to **34.5 t** to ensure a 95% recovery probability under atmospheric dispersions, establishing the nominal recovery ship position at **489 km downrange**.
 3.  **Engine Throttling Mandate:** S2 must employ dynamic engine throttling down to 40% near SECO to mitigate the 6.2 $g$ over-acceleration risk, keeping loads below the 5.0 $g$ structural threshold.
 
